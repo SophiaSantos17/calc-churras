@@ -8,10 +8,10 @@ import fonts from './../styles/fonsts';
 // chamando o componente de Text feito onde ele está com a font Inter
 import TextInter from "../styles/Text";
 
-const Button = ({text, backgound, color, border}) => { 
+const Button = ({text, backgound, color, border, onPress}) => { 
   return(
     // botão que para ser chamdo, poderá definir a cor de fundo, cor da borda e cor do texto no componente de baixo
-    <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: backgound, borderColor: border}]}>
+    <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: backgound, borderColor: border}]} onPress={onPress}>
 
       {/* componente Text estilizado com a font Inter, ele recebe a cor que será chamada para o texto de acordo com a página*/}
       <TextInter estilo={[styles.tittleButton, {color: color}]} text={text}/>

@@ -4,10 +4,10 @@
     "slug": "calc-churras",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./scr/assets/icon_preto.png",
+    "icon": "./scr/images/logo/assets/icon_preto.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./scr/assets/Splash_Screen.png",
+      "image": "./scr/assets/images/logo/Splash_Screen.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,12 +19,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./scr/assets/icon_preto.png",
+        "foregroundImage": "./scr/images/logo/assets/icon_preto.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./scr/assets/favicon_churras.png"
+      "favicon": "./scr/assets/images/logo/favicon_churras.png"
     }
   }
 }

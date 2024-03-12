@@ -4,7 +4,7 @@ import { StyleSheet, Text} from "react-native";
 
 const TextInter = ({text, estilo}) => {
   const [loadFonts] = useFonts({
-    'Inter': 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap',
+    'Inter': require('../assets/fonts/Inter/Inter-VariableFont_slnt,wght.ttf'),
   });
 
   if (!loadFonts){

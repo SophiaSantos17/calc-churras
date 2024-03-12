@@ -1,0 +1,56 @@
+Para criar o aplicativo, primeiro precisa ir no terminar, e executar o código:
+-- npx create-expo-app calc-churras
+
+em seguida, no terminal, entre na pasta que será criada
+-- cd calc-churras
+
+para executar o aplicativo, execute o seguinte comando
+-- npx expo start
+// para testar é necessário ou ter um emulador e então, quando iniciado, no terminal, digite 'a' e abrirá automaticamente em seu emulador, caso não tenha o emulador, outro teste é pelo seu próprio celular, baixe o aplicativo 'Expo' e, na mesma rede do seu computador, leia o qrCode que será gerado no terminal(caso você esteja em uma rede diferente, quando for iniciar o projeto, inicie com `npx expo start --tunnel`, assim poderá acessar em qualquer rede).
+
+Começando a configurar o ambiente:
+na pasta assets que foi criado pelo próprio react-native, pode apagar todos os arquivos que se encontram dentro, vá no github, na pasta de assets, e baixe a pasta assets, que se encontra dentro de src, e coloque os arquivos dentro dessa pasta assets
+
+
+antes de começar a criar pastas/arquivos ou programar, devemos arrumar o ambiente.
+primeiro, no arquivo App.js, pode excluir tudo e dixar só um Text de teste, assim:
+[imagem do app]
+
+
+primeiro, criar a pasta scr, e adicionar a parta assets dentro de scr
+no app.json troque a splash screen, e os icones pelos que estão na página assets/icons
+
+dentro de src, criar a pasta styles.
+Styles, será onde será armazenado todas as váriasveis de css padrões, que não mudam de valor, ficando mais fácil no momento de estilização do código.
+
+dentro de styles, crie o arquivo colors.js.
+no colors.js configuraremos as cores padõres do aplicativo.
+ainda na pasta styles, crie o arquivo fonts.js para definir os estilos das fontes, como tamanho normal, menor, maior, bold, e a font que será definida.
+
+para adicionar a font, usaremos a biblioteca useFonts, para baixar, execute o seguinte comando no terminal:
+-- npm install expo-font
+
+para conseguirmos utilizar a font Inter, teremos que criar um componente Text estilizado com a font.
+dentro da pasta styles, crie um arquivo chamado Text
+dentro desse arquivo Text, , criaemos como se fosse um componente, com o nome de textInter(para saber que esse Text tem a font) e chamaremos a função useFonts, passando o link do google fonts para a variavél loadFonts.
+no return do componente, criaremos um Text que recebe o estilo com a fonte + um estilo, esse estilo será chamado para caso queira editar as informações desse Text, como tamanho, peso, ec. Também recebe o texto que será passado.
+No styleSheet, chamei a font Inter que foi criada logo a cima.
+
+criando os componentes:
+primeiramente, antes decomeças a fazer as páginas, tem muitos componentes que poder ser reutilizáveis, então, esse será o primeiro passo. 
+
+-- criando a página componentes:
+dentro da pasta scr, crie uma pasta chamada componentes
+
+-- primeiro componente:
+o primeiro componente a ser feito, será o botão. Ele terá um tamanho, cor, titulo e borda, porém, entre esses todos, o único valor estático, é seu tamannho, o resto, será recebido quando o botão for chamado.
+
+Crie o componente chamado Button, exporte-o, e, antes de colocar qualquer coisa nele, já o chame na página App.js para poder ver ele.
+
+Criando o botão:
+para criar o botão, vamor usar o TouchableOpacity e o textInter(componente criado antes).
+No TouchableOpacity, adicione um estilo nele, e estilize-o.
+Assim que termnar de estilizar, poderá criar as variaveis e assim que criado, chamar no app com as informações.
+* não esqueça de utilizar os valores da pasta style..
+para utlizar, basta apenas chamar a const + valor, exemplo:
+color: colors.black

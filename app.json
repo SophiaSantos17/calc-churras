@@ -4,7 +4,7 @@
     "slug": "calc-churras",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./scr/images/logo/assets/icon_preto.png",
+    "icon": "./scr/assets/images/logo/icon_preto.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./scr/assets/images/logo/Splash_Screen.png",
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./scr/images/logo/assets/icon_preto.png",
+        "foregroundImage": "./scr/assets/images/logo/icon_preto.png",
         "backgroundColor": "#ffffff"
       }
     },

@@ -54,3 +54,12 @@ Assim que termnar de estilizar, poderá criar as variaveis e assim que criado, c
 * não esqueça de utilizar os valores da pasta style..
 para utlizar, basta apenas chamar a const + valor, exemplo:
 color: colors.black
+
+Criando card que receberá um texto:
+primeiro, importanmos oque será utilizado:
+[imagem dos imports]
+então esse card será um botão, e receberá um valor que será passado parauma váriavel com o valor.
+esse card tem a mesma lógica do button, porem ele tembém recebe um valor de height e width(altura e largura)
+também tem a lógica do ativo ou não ativo, que quando for ativo, muda a cor do texto/cor de fundo
+
+crei um função chamada handlePress que é executada toda vez que o botão for pressionado.

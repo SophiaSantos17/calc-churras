@@ -4,6 +4,7 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 // Importando as váriaveis estáticas criadas
 import colors from './../styles/colors';
 import fonts from './../styles/fonsts';
+import values from "../styles/values";
 
 // chamando o componente de Text feito onde ele está com a font Inter
 import TextInter from "../styles/Text";
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 8,
+    borderRadius: values.borderRadius,
   },
   // texto do botão
   tittleButton:{

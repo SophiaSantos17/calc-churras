@@ -31,6 +31,7 @@ const icons = {
     churras_white: require('../assets/images/icons/icon_churras_branca.png'),
     receita_white: require('../assets/images/icons/icon_receita_branca.png'),
     next: require('../assets/images/icons/icon_next.png'),
+    next_white: require('../assets/images/icons/icon_next_white.png'),
 }
 
 export default icons;

@@ -56,10 +56,39 @@ para utlizar, basta apenas chamar a const + valor, exemplo:
 color: colors.black
 
 Criando card que receberá um texto:
-primeiro, importanmos oque será utilizado:
+primeiro, importamos oque será utilizado:
 [imagem dos imports]
 então esse card será um botão, e receberá um valor que será passado parauma váriavel com o valor.
 esse card tem a mesma lógica do button, porem ele tembém recebe um valor de height e width(altura e largura)
 também tem a lógica do ativo ou não ativo, que quando for ativo, muda a cor do texto/cor de fundo
 
 crei um função chamada handlePress que é executada toda vez que o botão for pressionado.
+
+
+Criando card para a página de eventos:
+primeiro, importamos oque será utilizado:
+[imagem dos imports]
+para esse card, tera um view total, em seguida um view para a parte de cima que recebe o titulo e o botão para ver as informações do evento.
+depois, criamos outra view para a parte de beixo que vai receber mais 3 views, uma para cada informação dos participantes do evento.
+Para as imagens, criei um arquivo em styles, chamado icons, e la importei todas as imagens como icones.
+
+
+Criando o card de imagens:
+primeiro, importamos oque será utilizado:
+[imagem dos imports]
+para esse card, ele é um botão que quando for ativado, ele muda de cor, a cor da imagem e do texto.
+o botão é um TouchableOpacity com uma imagem e um texto.
+a lógica para mudar de cor é a seguinte:
+quando for chamar esse botão chamar o active:
+[exemplo de como chamar o botão]
+quando for chamar, criar uma variaver com useState false e quando clicar, for true, então quando for true, ele muda para as informações que estão na lógica do 'if else', por exemplo [active ? colors.red_primary : colors.white] quando for ativo, ele mostra o red_primary, quando n estiver ativo, fica no white.
+
+
+Criando Header com o Menu:
+O header, tem apenas o icone de menu, a logo e o inco de add
+quando clicado no icone de menu, abre o modal de menu com os botões que levam para cada página.
+esse modal é composto por tes botões, cada botão tem 2 icones e um texto.
+
+PÁGINA DE ICONS:
+como disse na criação do componente de imagem, criei, um arquivo para todos os icones.
+nele está a mesma lógica das cores, porém, estou chamando os os icones. 

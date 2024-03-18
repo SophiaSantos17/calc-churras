@@ -6,6 +6,7 @@ const fonts = {
   md: 20,
   small: 15,
   big: 25,
+  bigger: 35,
   tiny: "300",
   bold: "800",
   medium: '600',

@@ -32,6 +32,7 @@ const icons = {
     receita_white: require('../assets/images/icons/icon_receita_branca.png'),
     next: require('../assets/images/icons/icon_next.png'),
     next_white: require('../assets/images/icons/icon_next_white.png'),
+    fundo_home: require('../assets/images/fundo.png'),
 }
 
 export default icons;

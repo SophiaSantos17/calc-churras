@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import colors from "./scr/styles/colors";
+import Home from "./scr/pages/home";
 import Header from "./scr/components/header";
+import Button from "./scr/components/button";
 import icons from "./scr/styles/icons";
 
 const App = () => {
@@ -15,19 +17,21 @@ const App = () => {
 
   return (
     <View style={styles.containerApp}>
-      <Header />
+      <Home />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   containerApp: {
-    backgroundColor: colors.white,
+    flex: 1,
+    // backgroundColor: colors.black,
     display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
+
+    // // flexDirection: "row",
+    // // flexWrap: "wrap",
     justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
     height: "100%",
   },
 });

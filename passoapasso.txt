@@ -92,3 +92,16 @@ esse modal é composto por tes botões, cada botão tem 2 icones e um texto.
 PÁGINA DE ICONS:
 como disse na criação do componente de imagem, criei, um arquivo para todos os icones.
 nele está a mesma lógica das cores, porém, estou chamando os os icones. 
+
+COMPONENTE PARA PÁGINAS DE ADICIONAR:
+- na pasta scr/components, crie o arquivo `topBar.js`. Esse componente, terá o botão de voltar, um titulo e subtitulo. 
+Na chamada ele, deverá chamar o titulo e o subtitulo e a cor do texto.
+nesse componete, o botão de voltar, o icone pode ser branco ou preto, então criei uma função para definir qual vai ser a cor da seta quando chamado o componente.
+
+CRIAÇÃO DAS PÁGINAS 
+ná pasta src, crie a pasta para onde será armazenado as páginas do projeto.
+-- src/pages
+
+PÁGINA EVENTOS 
+-> a página de eventos conterá o header com o menu,  o titulo mais os cards de eventos.
+-> nessa página, o header e o card serão componentes importados.

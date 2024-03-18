@@ -34,12 +34,13 @@ const CardEvent = () => {
 
 const styles = StyleSheet.create({
   cardContainer: {
-    width: "85%",
+    width: "90%",
     height: 130,
     elevation: 7,
     backgroundColor: colors.white,
     borderRadius: values.borderRadius,
     padding: 20,
+    marginVertical: 10,
     
   },
   topSize: {

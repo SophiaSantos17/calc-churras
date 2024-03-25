@@ -7,7 +7,7 @@ const icons = {
     woman_black: require('../assets/images/icons/woman_icon.png'),
     man_black: require('../assets/images/icons/man_icon.png'),
     kid_black: require('../assets/images/icons/kid_icon.png'),
-    add_woman_white: require('../assets/images/icons/icon_addHomem_branca.png'),
+    add_woman_white: require('../assets/images/icons/icon_addMulher_branca.png'),
     add_man_white: require('../assets/images/icons/icon_addHomem_branca.png'),
     add_kid_white: require('../assets/images/icons/icon_crianca_branca.png'),
     cerveja_white: require('../assets/images/icons/icon_cerveja_branca.png'),

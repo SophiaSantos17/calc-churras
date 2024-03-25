@@ -34,6 +34,10 @@ const icons = {
     next_white: require('../assets/images/icons/icon_next_white.png'),
     arrow_back_black: require('../assets/images/icons/icon_back_black.png'),
     arrow_back_white: require('../assets/images/icons/icon_back_white.png'),
+
+    //imagem de fundo da página home
+    fundo_home: require('../assets/images/fundo.png'),
+
 }
 
 export default icons;

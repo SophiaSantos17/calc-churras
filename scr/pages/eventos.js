@@ -3,7 +3,6 @@ import Header from "../components/header";
 import TextInter from "../styles/Text";
 import fonts from "../styles/fonsts";
 import CardEvent from "../components/cardEvent";
-import colors from "../styles/colors";
 
 const PagEventos = () => {
   return (
@@ -18,9 +17,11 @@ const PagEventos = () => {
 };
 
 const styles = StyleSheet.create({
+  // todo a página
   containerEvent: {
     padding: 0,
   },
+  // titulo da página
   titleEvent: {
     fontSize: fonts.bigger,
     fontWeight: fonts.bold,
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     width: "90%",
   },
+  // tela scrow que vai receber todos os cards
   boxCardEvent: {
     width: "100%",
     justifyContent: "flex-start",

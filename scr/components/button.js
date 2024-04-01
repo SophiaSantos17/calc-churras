@@ -25,12 +25,12 @@ const Button = ({text, backgound, color, border, onPress}) => {
 const styles = StyleSheet.create({
   // botão
   buttonContainer:{
-    width: 300,
+    width: "90%",
     borderWidth: 1.5,
     height: 50,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: values.borderRadius,
+    borderRadius: 4,
   },
   // texto do botão
   tittleButton:{

@@ -9,7 +9,7 @@ import icons from "../styles/icons";
 import fonts from "../styles/fonsts";
 import Button from "../components/button";
 
-export function AddPeople() {
+const PageAddPeople = () => {
   const [value, setValue] = useState(0);
 
   const handleAdd = () => {
@@ -160,3 +160,5 @@ const styles = StyleSheet.create({
     width: values.full,
   },
 });
+
+export default PageAddPeople;

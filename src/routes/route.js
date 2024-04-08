@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "../pages/home";
 import PagEventos from "../pages/eventos";
 import PageAddPeople from "../pages/add-people";
+import PageAddCarnes from "../pages/add-carnes";
 
 // Configuração e gestão de navegação entre telas
 const Stack = createNativeStackNavigator();
@@ -21,6 +22,8 @@ const Routes = () => {
                 <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
                 <Stack.Screen name="Eventos" component={PagEventos} options={{headerShown: false}} />
                 <Stack.Screen name="AddPeople" component={PageAddPeople} options={{headerShown: false}} />
+                <Stack.Screen name="AddCarnes" component={PageAddCarnes} options={{headerShown: false}} />
+                <Stack.Screen name="AddTiposCarnes" component={PageAddTipoCarnes} options={{headerShown: false}} />
             </Stack.Navigator>
         </NavigationContainer>
     )

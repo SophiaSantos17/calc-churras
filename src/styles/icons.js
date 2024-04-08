@@ -16,7 +16,7 @@ const icons = {
     boi_black: require('../assets/images/icons/icon_boi_preta.png'),
     boi_white: require('../assets/images/icons/icon_boi_branca.png'),
     porco_black: require('../assets/images/icons/icon_porco_preta.png'),
-    porco_white: require('../assets/images/icons/icon_porco_white.png'),
+    porco_white: require('../assets/images/icons/icon_porco_branca.png'),
     frango_white: require('../assets/images/icons/icon_galinha_branca.png'),
     frango_black: require('../assets/images/icons/icon_galinha_preta.png'),
     corte_bovino: require('../assets/images/icons/icon_cortebovino_branca.png'),

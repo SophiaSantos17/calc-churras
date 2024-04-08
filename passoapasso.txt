@@ -58,7 +58,7 @@ color: colors.black
 Criando card que receberá um texto:
 primeiro, importamos oque será utilizado:
 [imagem dos imports]
-então esse card será um botão, e receberá um valor que será passado parauma váriavel com o valor.
+então esse card será um botão, e receberá um valor que será passado para uma váriavel com o valor.
 esse card tem a mesma lógica do button, porem ele tembém recebe um valor de height e width(altura e largura)
 também tem a lógica do ativo ou não ativo, que quando for ativo, muda a cor do texto/cor de fundo
 

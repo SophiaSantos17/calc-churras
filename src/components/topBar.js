@@ -1,12 +1,16 @@
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import TextInter from "../styles/Text";
+
 import icons from "../styles/icons";
 import fonts from "../styles/fonsts";
-import TextInter from "../styles/Text";
 import values from "../styles/values";
 
 const TopBar = ({ color_button, title, subtitle, subtitleColor, titleColor }) => {
   // função para definir se a seta do botão de voltar será branca ou preta, então na hora de chamar o componente, deverá efinir se sera 'black' ou 'white'
+  const navigate = useNavigation();
+
   function colorArrow(color) {
     let arrow; // variavél que vai receber o icone
 
@@ -25,7 +29,7 @@ const TopBar = ({ color_button, title, subtitle, subtitleColor, titleColor }) =>
   return (
     <View style={styles.containerTopBar}>
       <View style={styles.sizeButton}>
-        <TouchableOpacity style={styles.buttonBack}>
+        <TouchableOpacity style={styles.buttonBack} onPress={() => navigate.goBack()}>
           <Image source={colorArrow(color_button)} style={styles.iconBtn} />
         </TouchableOpacity>
       </View>
@@ -40,9 +44,10 @@ const TopBar = ({ color_button, title, subtitle, subtitleColor, titleColor }) =>
 const styles = StyleSheet.create({
   containerTopBar: {
     width: values.full,
-    height: 200,
-    marginTop: 100,
+    height: "auto",
+    marginTop: 70,
     flexDirection: "row",
+    // backgroundColor: "blue",
   },
   sizeButton: {
     width: values.fifteen_percent,

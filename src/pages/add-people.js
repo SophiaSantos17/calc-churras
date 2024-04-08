@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+
+// import dos componentes prontos
 import TextInter from "../styles/Text";
 import colors from "../styles/colors";
-import TopBar from "../components/topBar";
 import CardAddPeople from "../components/cardAddPeople";
+import Button from "../components/button";
+
+// import dos valores para estilo
 import values from "../styles/values";
 import icons from "../styles/icons";
 import fonts from "../styles/fonsts";
-import Button from "../components/button";
 
 const PageAddPeople = () => {
+  const navigate = useNavigation();
+
   const [value, setValue] = useState(0);
 
   const handleAdd = () => {
@@ -89,6 +95,7 @@ const PageAddPeople = () => {
           color={colors.red_primary}
           border={colors.white}
           backgound={colors.white}
+          onPress={() => navigate.navigate("AddCarnes")}
         />
       </View>
     </View>

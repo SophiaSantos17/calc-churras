@@ -13,12 +13,42 @@ import Button from "../components/button";
 import colors from "../styles/colors";
 import values from "../styles/values";
 
+import Carnes from "../../src/back/Carnes"
+
 const PageAddCarnes = () => {
     const navigate = useNavigation();
     const [activeBoi, setActiveBoi] = useState(false);
     const [activePorco, setActivePorco] = useState(false);
     const [activeFrango, setActiveFrango] = useState(false);
 
+    const [bovina, setBovina] = useState(0)
+    const [suina, setSuina] = useState(0)
+    const [frango, setFrango] = useState(0)
+    const [picanha, setPicanha] = useState(false)
+    const [maminha, setMaminha] = useState(false)
+    const [costela, setCostela] = useState(false)
+    const [pernil, setPernil] = useState(false)
+    const [linguiça, setLinguica] = useState(false)
+    const [costelinha, setCostelinha] = useState(false)
+    const [asa, setAsa] = useState(false)
+    const [peito, setPeito] = useState(false)
+    const [coxa, setCoxa] = useState(false)
+
+    function proximo (){
+      Carnes.bovina['Picanha'] = picanha ? true : false 
+      Carnes.bovina['Maminha'] = maminha ? true : false 
+      Carnes.bovina['Costela'] = costela ? true : false 
+      Carnes.suina['Pernil'] = pernil ? true : false 
+      Carnes.bovina['Linguiça'] = linguiça ? true : false 
+      Carnes.bovina['Costelinha'] = costelinha? true : false
+      Carnes.frango['Asa'] = asa? true : false 
+      Carnes.frango['Peito'] = peito ? true : false 
+      Carnes.frango['Coxa'] = coxa? true : false 
+    }
+
+
+
+}
 
   // front da página
   return (

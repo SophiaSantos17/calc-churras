@@ -15,6 +15,8 @@ import values from "../styles/values";
 
 const PageAddCarnes = () => {
     const navigate = useNavigation();
+
+    // função para mudar cor no front
     const [activeBoi, setActiveBoi] = useState(false);
     const [activePorco, setActivePorco] = useState(false);
     const [activeFrango, setActiveFrango] = useState(false);
@@ -25,41 +27,41 @@ const PageAddCarnes = () => {
     <View style={styles.containerAddCarnes}>
       {/* HEADER */}
       <TopBar
-        color_button={"black"} // cor da setda de volta
-        title={"Carnes"}
-        subtitle={"Escolha a quantidade que desejar"}
+        color_button={"black"} // Cor da setda de volta
+        title={"Carnes"} // Titulo 
+        subtitle={"Escolha a quantidade que desejar"} // Subtitulo
       />
       {/* BOTÕES DE SELEÇÃO */}
       <View style={styles.boxCardImages}>
         <CardImage
           active={activeBoi} // Estado ativo do botão
           icon={icons.boi_black} // Ícone quando não está ativo
-          iconHover={icons.boi_white} // Ícone quando passa o mouse (não parece relevante para React Native)
+          iconHover={icons.boi_white} // Ícone quando está ativo
           title={"Bovina"} // Título do botão
           onPress={() => setActiveBoi(!activeBoi)} // Função a ser chamada quando o botão é pressionado
         />
         <CardImage
           active={activePorco} // Estado ativo do botão
           icon={icons.porco_black} // Ícone quando não está ativo
-          iconHover={icons.porco_white} // Ícone quando passa o mouse (não parece relevante para React Native)
+          iconHover={icons.porco_white} // Ícone quando está ativo
           title={"Bovina"} // Título do botão
           onPress={() => setActivePorco(!activePorco)} // Função a ser chamada quando o botão é pressionado
         />
         <CardImage
           active={activeFrango} // Estado ativo do botão
           icon={icons.frango_black} // Ícone quando não está ativo
-          iconHover={icons.frango_white} // Ícone quando passa o mouse (não parece relevante para React Native)
+          iconHover={icons.frango_white} // Ícone quando está ativo
           title={"Bovina"} // Título do botão
           onPress={() => setActiveFrango(!activeFrango)} // Função a ser chamada quando o botão é pressionado
         />
       </View>
       <View style={styles.cardButton}>
         <Button
-          text="Avançar"
-          backgound={colors.red_primary}
-          color={colors.white}
+          text="Avançar" // Titulo do botão
+          backgound={colors.red_primary} // Cor de fundo do botão
+          color={colors.white} // cor do botão
           border={colors.red_primary}
-          onPress={() => navigate.navigate("")}
+          onPress={() => navigate.navigate("AddTiposCarnes")}
         />
       </View>
     </View>

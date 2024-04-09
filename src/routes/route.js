@@ -9,6 +9,7 @@ import Home from "../pages/home";
 import PagEventos from "../pages/eventos";
 import PageAddPeople from "../pages/add-people";
 import PageAddCarnes from "../pages/add-carnes";
+import PageAddTipoCarnes from "../pages/add-tipos-carnes";
 
 // Configuração e gestão de navegação entre telas
 const Stack = createNativeStackNavigator();
@@ -18,7 +19,7 @@ const Routes = () => {
         // Agrupa as rotas
         <NavigationContainer>
             {/* Cria uma pilha de páginas */}
-            <Stack.Navigator initialRouteName="AddPeople">
+            <Stack.Navigator initialRouteName="AddTiposCarnes">
                 <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
                 <Stack.Screen name="Eventos" component={PagEventos} options={{headerShown: false}} />
                 <Stack.Screen name="AddPeople" component={PageAddPeople} options={{headerShown: false}} />

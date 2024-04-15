@@ -11,9 +11,12 @@ import colors from "../styles/colors";
 import icons from "../styles/icons";
 import fonts from "../styles/fonsts";
 import TextInter from "../styles/Text";
+import { useNavigation } from "@react-navigation/native";
 
 const Header = () => {
   const [modalVisible, setModalVisible] = useState(false);
+
+  const navigate = useNavigation();
 
   const openModal = () => {
     setModalVisible(true);
@@ -34,7 +37,7 @@ const Header = () => {
           style={styles.logo}
         />
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate.navigate("AddPeople") }>
           <Image source={icons.add_black} style={styles.icon} />
         </TouchableOpacity>
       </View>
@@ -49,7 +52,7 @@ const Header = () => {
           <View style={styles.modalBackground}>
             <TouchableWithoutFeedback onPress={() => {}}>
               <View style={styles.menu}>
-                <TouchableOpacity style={styles.buttonMenu}>
+                <TouchableOpacity style={styles.buttonMenu} onPress={() => navigate.navigate("AddPeople")}>
                   <View style={styles.topMenu}>
                     <Image source={icons.math_white} style={styles.iconMenu} />
                     <TextInter text={"Calcular"} estilo={styles.textMenu} />
@@ -58,6 +61,7 @@ const Header = () => {
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={[styles.buttonMenu, { borderTopWidth: 0 }]}
+                  onPress={() => navigate.navigate("AddPeople")}
                 >
                   <View style={styles.topMenu}>
                     <Image
@@ -73,6 +77,7 @@ const Header = () => {
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={[styles.buttonMenu, { borderTopWidth: 0 }]}
+                  onPress={() => navigate.navigate("AddPeople")}
                 >
                   <View style={styles.topMenu}>
                     <Image

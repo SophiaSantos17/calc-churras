@@ -1,32 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-
-//import de back
-import Convidados from "../back/Convidados";
-
-// impor de componentes
+import { Image, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import TextInter from "../styles/Text";
-import Button from "../components/button";
-import CardAddPeople from "../components/cardAddPeople";
-
-
-// import de valores padrão
 import colors from "../styles/colors";
+import CardAddPeople from "../components/cardAddPeople";
 import values from "../styles/values";
 import icons from "../styles/icons";
 import fonts from "../styles/fonsts";
-
-
+import Button from "../components/button";
+import Convidados from "../back/Convidados";
+import { useNavigation } from "@react-navigation/native";
+import ErrorMessage from "../components/errorMessage";
 
 const PageAddPeople = () => {
+  const navigate = useNavigation();
   const [homens, setHomens] = useState(0);
   const [mulheres, setMulheres] = useState(0);
   const [criancas, setCriancas] = useState(0);
   const [pBebe, setPBebem] = useState(0);
+  const [error, setError] = useState("");
   // const [participantes, setParticipantes] = useState(0);
 
-  const navigate = useNavigation();
 
 
   useEffect(() => {
@@ -35,11 +28,28 @@ const PageAddPeople = () => {
     Convidados.criancas = criancas;
   }, [homens, mulheres, criancas]);
 
+
+  const validacaoPBebe = () => {
+    try {
+      if (pBebe <= homens + mulheres) {
+        navigate.navigate("AddCarnes");
+      } else {
+        setError("O número de pessoas que bebem não pode ultrapassar o número de participantes adultos!");
+        // setError("")
+      }
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+  
+
+
+
   return (
-    <View style={styles.constainerAddPeople}>
+    <ScrollView contentContainerStyle={styles.constainerAddPeople}>
       <View style={styles.containerTopBar}>
         <View style={styles.sizeButton}>
-          <TouchableOpacity style={styles.buttonBack} onPress={() => navigate.goBack()}>
+          <TouchableOpacity style={styles.buttonBack}>
             <Image source={icons.arrow_back_white} style={styles.iconBtn} />
           </TouchableOpacity>
         </View>
@@ -54,6 +64,7 @@ const PageAddPeople = () => {
       </View>
 
       <View style={styles.boxCards}>
+        {/* <ErrorMessage message={"teste teste teste teste"}/> */}
         <CardAddPeople
           text={"Homens"}
           icon={icons.add_man_white}
@@ -98,23 +109,39 @@ const PageAddPeople = () => {
           icon={icons.cerveja_white}
           iconsAdd={icons.add_white}
           iconMenus={icons.menos_white}
+          functionAdd={() => {
+            pBebe != 50 ? setPBebem(pBebe + 1) : setPBebem(pBebe);
+          }}
+          functionSub={() => {
+            pBebe != 0 ? setPBebem(pBebe - 1) : setPBebem(pBebe);
+          }}
+          value={pBebe}
         />
         <CardAddPeople
           text={"Participantes"}
           icon={icons.people_white}
-          value={homens}
+          value={mulheres + homens + criancas}
         />
       </View>
+      {
+          error &&
+          <ErrorMessage
+            message={error} />
+        }
       <View style={styles.boxButton}>
+        
         <Button
           text={"Avançar"}
+          // functionAddPBB={() => {
+          //   validacaoPBebe();
+          // }}
           color={colors.red_primary}
           border={colors.white}
           backgound={colors.white}
-          onPress={() => navigate.navigate("AddCarnes")}
+          onPress={validacaoPBebe}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -122,7 +149,9 @@ const styles = StyleSheet.create({
   // PAGE -------------------------------------------------
   constainerAddPeople: {
     backgroundColor: colors.red_primary,
-    height: values.full,
+    height: "auto",
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   // TOP BAR -------------------------------------------------
@@ -173,7 +202,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 20,
-    marginVertical: 30,
+    // marginVertical: 30,
+    marginTop: 30,
+
   },
 
   // posição button ------------------------------------------------------
@@ -181,7 +212,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: values.full,
-    // height: 150,
+    height: 150,
+    
   },
 });
 

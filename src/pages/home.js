@@ -10,6 +10,7 @@ import Button from "../components/button";
 // imports valores estáticos
 import colors from "../styles/colors";
 import fonts from "../styles/fonsts";
+import values from "../styles/values";
 
 
 
@@ -89,7 +90,10 @@ const styles = StyleSheet.create({
     },
 
     subContainer:{
-        gap: 8
+        gap: 8,
+        width: values.full,
+        justifyContent: "center",
+        alignItems: "center",
     }
 });
 

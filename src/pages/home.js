@@ -32,7 +32,7 @@ const Home = () => {
                     </View>
                     <View style={styles.subContainer}>
                         <Button text="Calcular" color={colors.red_primary} backgound={colors.white} border={colors.red_primary} onPress={() => navigate.navigate("AddPeople")}/>
-                        <Button text="Acessar" color={colors.white} backgound={colors.red_primary} border={colors.red_primary}/>
+                        <Button text="Acessar" color={colors.white} backgound={colors.red_primary} border={colors.red_primary} onPress={() => navigate.navigate("Eventos")}/>
                     </View>
                 </View>
                 

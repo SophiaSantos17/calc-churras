@@ -19,9 +19,18 @@ const PageAddTipoCarnes = () => {
   const navigate = useNavigation();
 
   // função para mudar cor no front
+  // bovino ---
   const [activePicanha, setPicanha] = useState(false);
   const [activeMaminha, setActiveMaminha] = useState(false);
   const [activeCostela, setActiveCostela] = useState(false);
+  // suino ---
+  const [activePernil, setActivePernil] = useState(false);
+  const [activeLinguica, setActiveLinguica] = useState(false);
+  const [activeCostelinha, setActiveCostelinha] = useState(false);
+  // frango ---
+  const [activeAsa, setActiveAsa] = useState(false);
+  const [activePeito, setActivePeito] = useState(false);
+  const [activeCoxa, setActiveCoxa] = useState(false);
 
   // front da página
 
@@ -80,26 +89,26 @@ const PageAddTipoCarnes = () => {
             <CardText
               width={"30%"}
               height={50}
-              text="Picanha"
+              text="Pernil"
               background={"red"}
-              onPress={() => setPicanha(!activePicanha)}
-              active={activePicanha}
+              onPress={() => setActivePernil(!activePernil)}
+              active={activePernil}
             />
             <CardText
               width={"30%"}
               height={50}
-              text="Maminha"
+              text="Linguiça"
               background={"red"}
-              onPress={() => setActiveMaminha(!activeMaminha)}
-              active={activeMaminha}
+              onPress={() => setActiveLinguica(!activeLinguica)}
+              active={activeLinguica}
             />
             <CardText
               width={"30%"}
               height={50}
-              text="Maminha"
+              text="Costelinha"
               background={"red"}
-              onPress={() => setActiveCostela(!activeCostela)}
-              active={activeCostela}
+              onPress={() => setActiveCostelinha(!activeCostelinha)}
+              active={activeCostelinha}
             />
           </View>
         </View>
@@ -112,26 +121,26 @@ const PageAddTipoCarnes = () => {
             <CardText
               width={"30%"}
               height={50}
-              text="Picanha"
+              text="Asa"
               background={"red"}
-              onPress={() => setPicanha(!activePicanha)}
-              active={activePicanha}
+              onPress={() => setActiveAsa(!activeAsa)}
+              active={activeAsa}
             />
             <CardText
               width={"30%"}
               height={50}
-              text="Maminha"
+              text="Peito"
               background={"red"}
-              onPress={() => setActiveMaminha(!activeMaminha)}
-              active={activeMaminha}
+              onPress={() => setActivePeito(!activePeito)}
+              active={activePeito}
             />
             <CardText
               width={"30%"}
               height={50}
-              text="Maminha"
+              text="Coxa"
               background={"red"}
-              onPress={() => setActiveCostela(!activeCostela)}
-              active={activeCostela}
+              onPress={() => setActiveCoxa(!activeCoxa)}
+              active={activeCoxa}
             />
           </View>
         </View>

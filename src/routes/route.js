@@ -19,7 +19,7 @@ const Routes = () => {
         // Agrupa as rotas
         <NavigationContainer>
             {/* Cria uma pilha de páginas */}
-            <Stack.Navigator initialRouteName="AddTiposCarnes">
+            <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
                 <Stack.Screen name="Eventos" component={PagEventos} options={{headerShown: false}} />
                 <Stack.Screen name="AddPeople" component={PageAddPeople} options={{headerShown: false}} />

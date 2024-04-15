@@ -50,7 +50,6 @@ const PageAddCarnes = () => {
 
 
 
-}
 
   // front da página
   return (
@@ -99,6 +98,7 @@ const PageAddCarnes = () => {
 };
 
 const styles = StyleSheet.create({
+  // 
   containerAddCarnes: {
     backgroundColor: colors.white,
     display: "flex",

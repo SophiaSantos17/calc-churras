@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
+//import de back
+import Convidados from "../back/Convidados";
+
+// impor de componentes
 import TextInter from "../styles/Text";
-import colors from "../styles/colors";
-import TopBar from "../components/topBar";
+import Button from "../components/button";
 import CardAddPeople from "../components/cardAddPeople";
+
+
+// import de valores padrão
+import colors from "../styles/colors";
 import values from "../styles/values";
 import icons from "../styles/icons";
 import fonts from "../styles/fonsts";
-import Button from "../components/button";
-import Convidados from "../back/Convidados";
-import { useNavigation } from "@react-navigation/native";
+
+
 
 const PageAddPeople = () => {
   const [homens, setHomens] = useState(0);
@@ -173,6 +181,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: values.full,
+    // height: 150,
   },
 });
 

@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-
 import { Image, StyleSheet, View } from "react-native";
 
 // Importando componentes prontos
 import TopBar from "../components/topBar";
 import TextInter from "../styles/Text";
+import CardText from "../components/cardText";
 
 // importanto elementos estáticos para estilização
 import icons from "../styles/icons";
 import Button from "../components/button";
 import colors from "../styles/colors";
 import values from "../styles/values";
-import CardText from "../components/cardText";
+
+// import do back
 
 const PageAddTipoCarnes = () => {
   // variavel para navegação
@@ -151,7 +152,7 @@ const PageAddTipoCarnes = () => {
           backgound={colors.white} // Cor de fundo do botão
           color={colors.red_primary} // cor do botão
           border={colors.red_primary}
-          onPress={() => navigate.navigate("AddTiposCarnes")}
+          onPress={() => navigate.navigate("AddBebidas")}
         />
       </View>
     </View>

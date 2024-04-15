@@ -39,7 +39,7 @@ const PageAddPeople = () => {
     <View style={styles.constainerAddPeople}>
       <View style={styles.containerTopBar}>
         <View style={styles.sizeButton}>
-          <TouchableOpacity style={styles.buttonBack}>
+          <TouchableOpacity style={styles.buttonBack} onPress={() => navigate.goBack()}>
             <Image source={icons.arrow_back_white} style={styles.iconBtn} />
           </TouchableOpacity>
         </View>

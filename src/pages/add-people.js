@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Image, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import TextInter from "../styles/Text";
 import colors from "../styles/colors";
 import CardAddPeople from "../components/cardAddPeople";
@@ -9,7 +15,7 @@ import fonts from "../styles/fonsts";
 import Button from "../components/button";
 import Convidados from "../back/Convidados";
 import { useNavigation } from "@react-navigation/native";
-import ErrorMessage from "../components/errorMessage";
+// import ErrorMessage from "../components/errorMessage";
 
 const PageAddPeople = () => {
   const navigate = useNavigation();
@@ -20,30 +26,26 @@ const PageAddPeople = () => {
   const [error, setError] = useState("");
   // const [participantes, setParticipantes] = useState(0);
 
-
-
   useEffect(() => {
     Convidados.homens = homens;
     Convidados.mulheres = mulheres;
     Convidados.criancas = criancas;
   }, [homens, mulheres, criancas]);
 
-
   const validacaoPBebe = () => {
     try {
       if (pBebe <= homens + mulheres) {
         navigate.navigate("AddCarnes");
       } else {
-        setError("O número de pessoas que bebem não pode ultrapassar o número de participantes adultos!");
+        setError(
+          "O número de pessoas que bebem não pode ultrapassar o número de participantes adultos!"
+        );
         // setError("")
       }
     } catch (error) {
       setError(error.message);
     }
   };
-  
-
-
 
   return (
     <ScrollView contentContainerStyle={styles.constainerAddPeople}>
@@ -123,13 +125,8 @@ const PageAddPeople = () => {
           value={mulheres + homens + criancas}
         />
       </View>
-      {
-          error &&
-          <ErrorMessage
-            message={error} />
-        }
+      {error && <TextInter text={error}/> }
       <View style={styles.boxButton}>
-        
         <Button
           text={"Avançar"}
           // functionAddPBB={() => {
@@ -204,7 +201,6 @@ const styles = StyleSheet.create({
     gap: 20,
     // marginVertical: 30,
     marginTop: 30,
-
   },
 
   // posição button ------------------------------------------------------
@@ -213,7 +209,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: values.full,
     height: 150,
-    
   },
 });
 

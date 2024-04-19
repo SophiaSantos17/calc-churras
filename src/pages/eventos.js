@@ -3,6 +3,7 @@ import Header from "../components/header";
 import TextInter from "../styles/Text";
 import fonts from "../styles/fonsts";
 import CardEvent from "../components/cardEvent";
+import colors from "../styles/colors";
 
 const PagEventos = () => {
   return (
@@ -10,7 +11,8 @@ const PagEventos = () => {
       <Header />
       <TextInter text={"Meus Eventos"} estilo={styles.titleEvent} />
       <ScrollView contentContainerStyle={styles.boxCardEvent} vertical={true} showsVerticalScrollIndicator={false}>
-        <CardEvent />
+        {/* .map dos eventos que estão no banco */}
+        {/* <CardEvent /> */}
       </ScrollView>
     </View> 
   );
@@ -20,6 +22,7 @@ const styles = StyleSheet.create({
   // todo a página
   containerEvent: {
     padding: 0,
+    backgroundColor: colors.white,
   },
   // titulo da página
   titleEvent: {
@@ -38,6 +41,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     flexWrap: 'wrap',
+    backgroundColor: colors.white,
+    height: "100%",
     
   },
 });

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
-
 import { StyleSheet, View } from "react-native";
 
 // Importando componentes prontos
@@ -13,6 +12,7 @@ import Button from "../components/button";
 import colors from "../styles/colors";
 import values from "../styles/values";
 
+// import do back
 import Carnes from "../../src/back/Carnes"
 
 const PageAddCarnes = () => {
@@ -50,7 +50,6 @@ const PageAddCarnes = () => {
 
 
 
-}
 
   // front da página
   return (
@@ -99,6 +98,7 @@ const PageAddCarnes = () => {
 };
 
 const styles = StyleSheet.create({
+  // 
   containerAddCarnes: {
     backgroundColor: colors.white,
     display: "flex",

@@ -1,17 +1,23 @@
 import React from "react";
 import { Image, StyleSheet, View,} from "react-native";
-// import Button from "./scr/components/button";
+import { useNavigation } from "@react-navigation/native";
+
+// import de componentes
 // import Header from "../components/header";
 import TextInter from "../styles/Text";
-// import icons from "../styles/icons";
-import colors from "../styles/colors";
 import Button from "../components/button";
-import values from "../styles/values";
+
+// imports valores estáticos
+import colors from "../styles/colors";
 import fonts from "../styles/fonsts";
+import values from "../styles/values";
+
+
 
 const Home = () => {
 
     // const [modalVisible, setModalVisible] = useState(true);
+    const navigate = useNavigation();
 
     return( 
         
@@ -25,8 +31,8 @@ const Home = () => {
                         <TextInter text={"Churras!"} estilo={styles.texto2} />
                     </View>
                     <View style={styles.subContainer}>
-                        <Button text="Calcular" color={colors.red_primary} backgound={colors.white} border={colors.red_primary}/>
-                        <Button text="Acessar" color={colors.white} backgound={colors.red_primary} border={colors.red_primary}/>
+                        <Button text="Calcular" color={colors.red_primary} backgound={colors.white} border={colors.red_primary} onPress={() => navigate.navigate("AddPeople")}/>
+                        <Button text="Acessar" color={colors.white} backgound={colors.red_primary} border={colors.red_primary} onPress={() => navigate.navigate("Eventos")}/>
                     </View>
                 </View>
                 
@@ -84,7 +90,10 @@ const styles = StyleSheet.create({
     },
 
     subContainer:{
-        gap: 8
+        gap: 8,
+        width: values.full,
+        justifyContent: "center",
+        alignItems: "center",
     }
 });
 

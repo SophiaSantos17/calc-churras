@@ -51,7 +51,7 @@ const PageAddPeople = () => {
     <ScrollView contentContainerStyle={styles.constainerAddPeople}>
       <View style={styles.containerTopBar}>
         <View style={styles.sizeButton}>
-          <TouchableOpacity style={styles.buttonBack}>
+          <TouchableOpacity style={styles.buttonBack} onPress={() => navigate.goBack()}>
             <Image source={icons.arrow_back_white} style={styles.iconBtn} />
           </TouchableOpacity>
         </View>
@@ -125,7 +125,7 @@ const PageAddPeople = () => {
           value={mulheres + homens + criancas}
         />
       </View>
-      {error && <ErrorMessage text={error}/> }
+      {error && <ErrorMessage message={error}/> }
       <View style={styles.boxButton}>
         <Button
           text={"Avançar"}

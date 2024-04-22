@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
 
     logo:{
         resizeMode:"contain",
-        width: 300,
+        width: 330,
     },
 
     containerInfo:{

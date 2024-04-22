@@ -87,7 +87,7 @@ const PageAddUtensilios = () => {
           backgound={colors.red_primary} // Cor de fundo do botão
           color={colors.white} // cor do botão
           border={colors.red_primary} // cor da borda
-          onPress={() => navigate.navigate("AddTiposCarnes")} //quando pressionar, ir para outra página
+          onPress={() => navigate.navigate("AddHoras")} //quando pressionar, ir para outra página
         />
       </View>
     </View>

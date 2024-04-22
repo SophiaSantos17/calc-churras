@@ -26,7 +26,7 @@ const PageAddAcompanhamento = () => {
       {/* HEADER */}
       <TopBar
         color_button={"white"} // Cor da setda de volta
-        title={"Bebidas"} // Titulo
+        title={"Acompanhamentos"} // Titulo
         subtitle={
           "Arroz, farofa e pão são obrigatórios, mas os outros, escolha de acordo com sua preferência"
         } // Subtitulo

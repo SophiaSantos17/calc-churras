@@ -73,14 +73,14 @@ const PageAddCarnes = () => {
           active={activePorco} // Estado ativo do botão
           icon={icons.porco_black} // Ícone quando não está ativo
           iconHover={icons.porco_white} // Ícone quando está ativo
-          title={"Bovina"} // Título do botão
+          title={"Suína"} // Título do botão
           onPress={() => setActivePorco(!activePorco)} // Função a ser chamada quando o botão é pressionado
         />
         <CardImage
           active={activeFrango} // Estado ativo do botão
           icon={icons.frango_black} // Ícone quando não está ativo
           iconHover={icons.frango_white} // Ícone quando está ativo
-          title={"Bovina"} // Título do botão
+          title={"Frango"} // Título do botão
           onPress={() => setActiveFrango(!activeFrango)} // Função a ser chamada quando o botão é pressionado
         />
       </View>

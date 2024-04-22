@@ -74,7 +74,7 @@ const PageAddTipoCarnes = () => {
             <CardText
               width={"30%"}
               height={50}
-              text="Maminha"
+              text="Costela"
               background={"red"}
               onPress={() => setActiveCostela(!activeCostela)}
               active={activeCostela}

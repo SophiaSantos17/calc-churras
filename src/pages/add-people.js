@@ -15,7 +15,7 @@ import fonts from "../styles/fonsts";
 import Button from "../components/button";
 import Convidados from "../back/Convidados";
 import { useNavigation } from "@react-navigation/native";
-// import ErrorMessage from "../components/errorMessage";
+import ErrorMessage from "../components/errorMessage";
 
 const PageAddPeople = () => {
   const navigate = useNavigation();
@@ -125,7 +125,7 @@ const PageAddPeople = () => {
           value={mulheres + homens + criancas}
         />
       </View>
-      {error && <TextInter text={error}/> }
+      {error && <ErrorMessage text={error}/> }
       <View style={styles.boxButton}>
         <Button
           text={"Avançar"}

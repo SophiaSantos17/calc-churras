@@ -15,7 +15,6 @@ import values from "../styles/values";
 const PageAddHoras = () => {
   const navigate = useNavigation();
 
-
   // funcao para mudar a cor no front
   const [active4Horas, setActive4Horas] = useState(false);
   const [active6Horas, setActive6Horas] = useState(false);

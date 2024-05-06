@@ -36,6 +36,7 @@ const PageAddTipoCarnes = () => {
   // front da página
 
   //   TODO: TERMINAR A PÁGINA
+  
 
   return (
     <View style={styles.containerAddCarnes}>

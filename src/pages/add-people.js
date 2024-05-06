@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  Alert,
   Image,
   ScrollView,
   StyleSheet,
@@ -32,20 +33,24 @@ const PageAddPeople = () => {
     Convidados.criancas = criancas;
   }, [homens, mulheres, criancas]);
 
-  const validacaoPBebe = () => {
+
+  const participantes = homens + mulheres + criancas;
+
+  const validacoes = () => {
     try {
-      if (pBebe <= homens + mulheres) {
+      if (participantes <= 0) {
+        setError("Por favor, insira ao menos um participante");
+      } else if (pBebe <= homens + mulheres) {
         navigate.navigate("AddCarnes");
       } else {
-        setError(
-          "O número de pessoas que bebem não pode ultrapassar o número de participantes adultos!"
-        );
-        // setError("")
+        setError("O número de pessoas que bebem não pode ultrapassar o número de participantes adultos!");
       }
     } catch (error) {
       setError(error.message);
     }
   };
+  
+  
 
   return (
     <ScrollView contentContainerStyle={styles.constainerAddPeople}>
@@ -122,22 +127,20 @@ const PageAddPeople = () => {
         <CardAddPeople
           text={"Participantes"}
           icon={icons.people_white}
-          value={mulheres + homens + criancas}
+          value={participantes}
         />
       </View>
       {error && <ErrorMessage message={error}/> }
       <View style={styles.boxButton}>
         <Button
           text={"Avançar"}
-          // functionAddPBB={() => {
-          //   validacaoPBebe();
-          // }}
           color={colors.red_primary}
           border={colors.white}
           backgound={colors.white}
-          onPress={validacaoPBebe}
+          onPress={validacoes}
         />
       </View>
+
     </ScrollView>
   );
 };

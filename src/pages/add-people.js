@@ -16,6 +16,7 @@ import Button from "../components/button";
 import Convidados from "../back/Convidados";
 import { useNavigation } from "@react-navigation/native";
 import ErrorMessage from "../components/errorMessage";
+import { insertParticipantes } from "../services/task";
 
 const PageAddPeople = () => {
   const navigate = useNavigation();
@@ -25,6 +26,17 @@ const PageAddPeople = () => {
   const [pBebe, setPBebem] = useState(0);
   const [error, setError] = useState("");
   // const [participantes, setParticipantes] = useState(0);
+
+  const data = {
+    "id_evento":"1",
+    "quant_homem":"33",
+    "quant_mulher":"77",
+    "quant_criancas":"70"
+  }
+
+  async function addParticipantes(data){
+    await insertParticipantes(data)
+  }
 
   useEffect(() => {
     Convidados.homens = homens;
@@ -135,7 +147,7 @@ const PageAddPeople = () => {
           color={colors.red_primary}
           border={colors.white}
           backgound={colors.white}
-          onPress={validacaoPBebe}
+          onPress={() =>addParticipantes(data)}
         />
       </View>
     </ScrollView>

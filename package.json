@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
+    "start": "npm-run-all -p start:api start:app",
+    "start:api": "node src/banco/src/app.js",
+    "start:app": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
@@ -11,18 +13,26 @@
   "dependencies": {
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
     "expo": "~50.0.11",
     "expo-font": "^11.10.3",
     "expo-status-bar": "~1.11.1",
+    "express": "^4.19.2",
     "i": "^0.3.7",
     "npm": "^10.5.1",
     "react": "18.2.0",
     "react-native": "0.73.4",
     "react-native-webview": "^13.8.4",
-    "react-native-youtube-iframe": "^2.3.0"
+    "react-native-youtube-iframe": "^2.3.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "npm-run-all": "^4.1.5"
   },
   "private": true
 }

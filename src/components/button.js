@@ -9,13 +9,14 @@ import values from "../styles/values";
 // chamando o componente de Text feito onde ele está com a font Inter
 import TextInter from "../styles/Text";
 
-const Button = ({ text, backgound, color, border, onPress }) => {
+const Button = ({ text, backgound, color, border, onPress, style}) => {
   return (
     // botão que para ser chamdo, poderá definir a cor de fundo, cor da borda e cor do texto no componente de baixo
     <TouchableOpacity
       style={[
         styles.buttonContainer,
-        { backgroundColor: backgound, borderColor: border },
+        { backgroundColor: backgound, borderColor: border }, 
+        style
       ]}
       onPress={onPress}
     >

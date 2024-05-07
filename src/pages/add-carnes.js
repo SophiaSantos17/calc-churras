@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useNavigation } from '@react-navigation/native';
+import { useState, useEffect} from "react";
 
+import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, View } from "react-native";
 
 // Importando componentes prontos
@@ -12,84 +12,129 @@ import icons from "../styles/icons";
 import Button from "../components/button";
 import colors from "../styles/colors";
 import values from "../styles/values";
+import { Alert } from 'react-native';
 
-import Carnes from "../../src/back/Carnes"
+
+// import do back
+import Carnes0 from "../back/Carnes0"
+import Convidados from "../back/Convidados"
 
 const PageAddCarnes = () => {
-    const navigate = useNavigation();
-    const [activeBoi, setActiveBoi] = useState(false);
-    const [activePorco, setActivePorco] = useState(false);
-    const [activeFrango, setActiveFrango] = useState(false);
 
-    const [bovina, setBovina] = useState(0)
-    const [suina, setSuina] = useState(0)
-    const [frango, setFrango] = useState(0)
-    const [picanha, setPicanha] = useState(false)
-    const [maminha, setMaminha] = useState(false)
-    const [costela, setCostela] = useState(false)
-    const [pernil, setPernil] = useState(false)
-    const [linguiça, setLinguica] = useState(false)
-    const [costelinha, setCostelinha] = useState(false)
-    const [asa, setAsa] = useState(false)
-    const [peito, setPeito] = useState(false)
-    const [coxa, setCoxa] = useState(false)
+  const navigate = useNavigation();
+  
+  // função para mudar cor no front
+  const [activeBoi, setActiveBoi] = useState(false);
+  const [activePorco, setActivePorco] = useState(false);
+  const [activeFrango, setActiveFrango] = useState(false);
+  
+  const [bovina, setBovina] = useState(0)
+  const [suina, setSuina] = useState(0)
+  const [frango, setFrango] = useState(0)
+  const [error, setError] = useState("");
 
-    function proximo (){
-      Carnes.bovina['Picanha'] = picanha ? true : false 
-      Carnes.bovina['Maminha'] = maminha ? true : false 
-      Carnes.bovina['Costela'] = costela ? true : false 
-      Carnes.suina['Pernil'] = pernil ? true : false 
-      Carnes.bovina['Linguiça'] = linguiça ? true : false 
-      Carnes.bovina['Costelinha'] = costelinha? true : false
-      Carnes.frango['Asa'] = asa? true : false 
-      Carnes.frango['Peito'] = peito ? true : false 
-      Carnes.frango['Coxa'] = coxa? true : false 
+
+  
+
+    useEffect(() => {
+      Carnes0.bovina = bovina;
+      Carnes0.suina = suina;
+      Carnes0.frango = frango;
+    }, [bovina, suina, frango]);
+
+
+
+  //   function proximo () {
+  //     Carnes0.bovina
+  //     Carnes0.suina
+  //     Carnes0.frango 
+  //     if( bovina || suina || frango ) {
+  //       navigate.navigate('PageAddTipoCarnes');
+  //     } else {
+        
+  //       Alert.alert('Um churrasco precisa de carne!', 'Selecione algum tipo de carne.')
+  //     }
+  //   }
+
+  function proximo() {
+    try {
+      if (bovina === true || suina === true || frango === true) {
+        navigate.navigate("PageAddTipoCarnes");
+      } else {
+        setError("Um churrasco precisa de carne!!");
+      }
+    } catch (error) {
+      setError(error.message);
     }
+  }
+  
 
+  
 
+  function voltar () {
+    navigate.navigate('PageAddPeople'); 
+  }
 
-}
+  // function calcularCarne (){
+  //   if (Carnes.bovina = true){
+  //     qtdCarneBHomens = Convidados.homens * 600;
+  //     qtdCarneBMulheres = Convidados.mulheres * 400;
+  //     qtdCarneBCriancas = Convidados.criancas * 250;
+  //   }
+  //   if (Carnes.suina = true){
+  //     qtdCarneSHomens = Convidados.homens * 400;
+  //     qtdCarneSMulheres = Convidados.mulheres * 200;
+  //     qtdCarneSCriancas = Convidados.criancas * 100;
+  //   }
+  //   if (Carnes.frango = true){
+  //     qtdCarneFHomens = Convidados.homens * 300;
+  //     qtdCarneFMulheres = Convidados.mulheres * 150;
+  //     qtdCarneFCriancas = Convidados.criancas * 75;
+  //   }
+  // }
+
 
   // front da página
   return (
     <View style={styles.containerAddCarnes}>
       {/* HEADER */}
       <TopBar
-        color_button={"black"} // cor da setda de volta
-        title={"Carnes"}
-        subtitle={"Escolha a quantidade que desejar"}
+        color_button={"black"} // Cor da setda de volta
+        title={"Carnes"} // Titulo 
+        subtitle={"Escolha a quantidade que desejar"} // Subtitulo
       />
       {/* BOTÕES DE SELEÇÃO */}
       <View style={styles.boxCardImages}>
         <CardImage
           active={activeBoi} // Estado ativo do botão
           icon={icons.boi_black} // Ícone quando não está ativo
-          iconHover={icons.boi_white} // Ícone quando passa o mouse (não parece relevante para React Native)
+          iconHover={icons.boi_white} // Ícone quando está ativo
           title={"Bovina"} // Título do botão
           onPress={() => setActiveBoi(!activeBoi)} // Função a ser chamada quando o botão é pressionado
         />
         <CardImage
           active={activePorco} // Estado ativo do botão
           icon={icons.porco_black} // Ícone quando não está ativo
-          iconHover={icons.porco_white} // Ícone quando passa o mouse (não parece relevante para React Native)
-          title={"Bovina"} // Título do botão
+          iconHover={icons.porco_white} // Ícone quando está ativo
+          title={"Suína"} // Título do botão
           onPress={() => setActivePorco(!activePorco)} // Função a ser chamada quando o botão é pressionado
         />
         <CardImage
           active={activeFrango} // Estado ativo do botão
           icon={icons.frango_black} // Ícone quando não está ativo
-          iconHover={icons.frango_white} // Ícone quando passa o mouse (não parece relevante para React Native)
-          title={"Bovina"} // Título do botão
+          iconHover={icons.frango_white} // Ícone quando está ativo
+          title={"Frango"} // Título do botão
           onPress={() => setActiveFrango(!activeFrango)} // Função a ser chamada quando o botão é pressionado
         />
       </View>
       <View style={styles.cardButton}>
         <Button
-          text="Avançar"
-          backgound={colors.red_primary}
-          color={colors.white}
+          text="Avançar" // Titulo do botão
+          backgound={colors.red_primary} // Cor de fundo do botão
+          color={colors.white} // cor do botão
           border={colors.red_primary}
-          onPress={() => navigate.navigate("")}
+          onPress={proximo}
+
         />
       </View>
     </View>
@@ -97,6 +142,7 @@ const PageAddCarnes = () => {
 };
 
 const styles = StyleSheet.create({
+  // 
   containerAddCarnes: {
     backgroundColor: colors.white,
     display: "flex",

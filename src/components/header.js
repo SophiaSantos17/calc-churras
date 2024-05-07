@@ -11,9 +11,12 @@ import colors from "../styles/colors";
 import icons from "../styles/icons";
 import fonts from "../styles/fonsts";
 import TextInter from "../styles/Text";
+import { useNavigation } from "@react-navigation/native";
 
 const Header = () => {
   const [modalVisible, setModalVisible] = useState(false);
+
+  const navigate = useNavigation();
 
   const openModal = () => {
     setModalVisible(true);
@@ -34,7 +37,7 @@ const Header = () => {
           style={styles.logo}
         />
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate.navigate("AddPeople")}>
           <Image source={icons.add_black} style={styles.icon} />
         </TouchableOpacity>
       </View>
@@ -49,7 +52,13 @@ const Header = () => {
           <View style={styles.modalBackground}>
             <TouchableWithoutFeedback onPress={() => {}}>
               <View style={styles.menu}>
-                <TouchableOpacity style={styles.buttonMenu}>
+                <TouchableOpacity
+                  style={styles.buttonMenu}
+                  onPress={() => {
+                    navigate.navigate("AddPeople");
+                    setModalVisible(false);
+                  }}
+                >
                   <View style={styles.topMenu}>
                     <Image source={icons.math_white} style={styles.iconMenu} />
                     <TextInter text={"Calcular"} estilo={styles.textMenu} />
@@ -58,7 +67,10 @@ const Header = () => {
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={[styles.buttonMenu, { borderTopWidth: 0 }]}
-                >
+                  onPress={() => {
+                    navigate.navigate("Eventos");
+                    setModalVisible(false);
+                  }}                >
                   <View style={styles.topMenu}>
                     <Image
                       source={icons.churras_white}
@@ -73,7 +85,10 @@ const Header = () => {
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={[styles.buttonMenu, { borderTopWidth: 0 }]}
-                >
+                  onPress={() => {
+                    navigate.navigate("Receitas");
+                    setModalVisible(false);
+                  }}                >
                   <View style={styles.topMenu}>
                     <Image
                       source={icons.receita_white}
@@ -108,8 +123,8 @@ const styles = StyleSheet.create({
     height: 40,
   },
   logo: {
-    width: 220,
-    height: 50,
+    width: 180,
+    height: 70,
   },
   menu: {
     backgroundColor: colors.red_primary,

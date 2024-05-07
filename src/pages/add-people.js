@@ -1,58 +1,62 @@
 import React, { useEffect, useState } from "react";
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import TextInter from "../styles/Text";
 import colors from "../styles/colors";
-import TopBar from "../components/topBar";
 import CardAddPeople from "../components/cardAddPeople";
 import values from "../styles/values";
 import icons from "../styles/icons";
 import fonts from "../styles/fonsts";
 import Button from "../components/button";
-import Convidados from "../../back/Convidados";
-import {useNavigation } from '@react-navigation/native'
-
+import Convidados from "../back/Convidados";
+import { useNavigation } from "@react-navigation/native";
+import ErrorMessage from "../components/errorMessage";
 
 const PageAddPeople = () => {
-const [homens, setHomens] = useState(0)
-const [mulheres, setMulheres] = useState(0)
-const [criancas, setCriancas] = useState(0)
+  const navigate = useNavigation();
+  const [homens, setHomens] = useState(0);
+  const [mulheres, setMulheres] = useState(0);
+  const [criancas, setCriancas] = useState(0);
+  const [pBebe, setPBebem] = useState(0);
+  const [error, setError] = useState("");
+  // const [participantes, setParticipantes] = useState(0);
 
-const navigation = useNavigation();
-
-// function proximo (){
-//   if(homens || mulheres > 0){
-//     navigation.replace('telacarnes');
-//   } else {
-//     Alert.alert('Um churrasco precisa de convidados!')
-//   }
-// }
-
-
-
-const addHomens = ()=> {
-  // ()=> homens != 0 ? setHomens(homens + 1): setHomens(homens)
-    setHomens(homens + 1)
-}
-
-const subHomens = () => {
-  if (homens > 0){
-    setHomens(homens - 1)
-  }
-};
+  useEffect(() => {
+    Convidados.homens = homens;
+    Convidados.mulheres = mulheres;
+    Convidados.criancas = criancas;
+  }, [homens, mulheres, criancas]);
 
 
-useEffect(()=> {
-  Convidados.homens = homens
-  Convidados.mulheres = mulheres
-  Convidados.criancas = criancas
-}, [homens, mulheres, criancas])
+  const participantes = homens + mulheres + criancas;
 
+  const validacoes = () => {
+    try {
+      if (participantes <= 0) {
+        setError("Por favor, insira ao menos um participante");
+      } else if (pBebe <= homens + mulheres) {
+        navigate.navigate("AddCarnes");
+      } else {
+        setError("O número de pessoas que bebem não pode ultrapassar o número de participantes adultos!");
+      }
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+  
+  
 
   return (
-    <View style={styles.constainerAddPeople}>
+    <ScrollView contentContainerStyle={styles.constainerAddPeople}>
       <View style={styles.containerTopBar}>
         <View style={styles.sizeButton}>
-          <TouchableOpacity style={styles.buttonBack}>
+          <TouchableOpacity style={styles.buttonBack} onPress={() => navigate.goBack()}>
             <Image source={icons.arrow_back_white} style={styles.iconBtn} />
           </TouchableOpacity>
         </View>
@@ -67,13 +71,18 @@ useEffect(()=> {
       </View>
 
       <View style={styles.boxCards}>
+        {/* <ErrorMessage message={"teste teste teste teste"}/> */}
         <CardAddPeople
           text={"Homens"}
           icon={icons.add_man_white}
           iconsAdd={icons.add_white}
           iconMenus={icons.menos_white}
-          functionAdd={()=> homens != 50 ? setHomens(homens + 1): setHomens(homens)}
-          functionSub={()=> homens != 0 ? setHomens(homens - 1): setHomens(homens)}
+          functionAdd={() => {
+            homens != 50 ? setHomens(homens + 1) : setHomens(homens);
+          }}
+          functionSub={() => {
+            homens != 0 ? setHomens(homens - 1) : setHomens(homens);
+          }}
           value={homens}
         />
         <CardAddPeople
@@ -81,8 +90,12 @@ useEffect(()=> {
           icon={icons.add_woman_white}
           iconsAdd={icons.add_white}
           iconMenus={icons.menos_white}
-          functionAdd={()=> mulheres != 50 ? setMulheres(mulheres + 1): setMulheres(mulheres)}
-          functionSub={()=> mulheres != 0 ? setMulheres(mulheres - 1): setMulheres(mulheres)}
+          functionAdd={() => {
+            mulheres != 50 ? setMulheres(mulheres + 1) : setMulheres(mulheres);
+          }}
+          functionSub={() => {
+            mulheres != 0 ? setMulheres(mulheres - 1) : setMulheres(mulheres);
+          }}
           value={mulheres}
         />
         <CardAddPeople
@@ -90,42 +103,55 @@ useEffect(()=> {
           icon={icons.add_kid_white}
           iconsAdd={icons.add_white}
           iconMenus={icons.menos_white}
-          functionAdd={()=> criancas != 50 ? setCriancas(criancas + 1): setCriancas(criancas)}
-          functionSub={()=> criancas != 0 ? setCriancas(criancas - 1): setCriancas(criancas)}
+          functionAdd={() => {
+            criancas != 50 ? setCriancas(criancas + 1) : setCriancas(criancas);
+          }}
+          functionSub={() => {
+            criancas != 0 ? setCriancas(criancas - 1) : setCriancas(criancas);
+          }}
           value={criancas}
         />
-        {/* <CardAddPeople
+        <CardAddPeople
           text={"Quantos Bebem?"}
           icon={icons.cerveja_white}
           iconsAdd={icons.add_white}
           iconMenus={icons.menos_white}
-          functionAdd={handleAdd}
-          functionSub={handleSub}
-          value={value}
+          functionAdd={() => {
+            pBebe != 50 ? setPBebem(pBebe + 1) : setPBebem(pBebe);
+          }}
+          functionSub={() => {
+            pBebe != 0 ? setPBebem(pBebe - 1) : setPBebem(pBebe);
+          }}
+          value={pBebe}
         />
         <CardAddPeople
           text={"Participantes"}
           icon={icons.people_white}
-          value={value}
-        /> */}
+          value={participantes}
+        />
       </View>
+      {error && <ErrorMessage message={error}/> }
       <View style={styles.boxButton}>
         <Button
           text={"Avançar"}
           color={colors.red_primary}
           border={colors.white}
           backgound={colors.white}
+          onPress={validacoes}
         />
       </View>
-    </View>
+
+    </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   // PAGE -------------------------------------------------
   constainerAddPeople: {
     backgroundColor: colors.red_primary,
-    height: values.full,
+    height: "auto",
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   // TOP BAR -------------------------------------------------
@@ -176,7 +202,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 20,
-    marginVertical: 30,
+    // marginVertical: 30,
+    marginTop: 30,
   },
 
   // posição button ------------------------------------------------------
@@ -184,6 +211,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: values.full,
+    height: 150,
   },
 });
 

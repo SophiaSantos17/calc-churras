@@ -72,7 +72,7 @@ npm run dev
 Caso tenha o aplicativo Expo no seu celular, leia o qrCode, pelo aplicativo (se for IOS abra a camêra e leia o qrCode)
 
 Se for pelo emulador, mais especificamente Android Studio:
-- No android Studio, apra o emulador
+- No android Studio, abra o emulador
 - No terminal com o aplicativo rodando, aperte a tecla `a` do seu teclado, abrará automaticamento
 
 <br><br>

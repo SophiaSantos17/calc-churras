@@ -8,7 +8,7 @@
 
 
 
-O projeto tem como objetivo calcular a quantidade necessária de carnes, comida, bebida para um churrasco, e ao final, caso queira salvar os dados, ele tem a opção de salvar o Evento, adicionando nome do evento, local e dono do churrasco.
+O projeto tem como objetivo calcular a quantidade necessária de carnes, comidas e bebidas para um churrasco, e ao final, caso queira salvar os dados, ele tem a opção de salvar o Evento, adicionando nome do evento, local e dono do churrasco.
 
 
 
@@ -34,7 +34,7 @@ O projeto tem como objetivo calcular a quantidade necessária de carnes, comida,
 <br><br>
 ## 💻Pré-requisitos
 
-Antes de começas. verifique se você atendeu aos seguintes requisitos:
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Você instalou a versão ```20.13.1 ```  do  ```node```
 - Para teste é necessario ter   ```Expo App / Android Studio ```

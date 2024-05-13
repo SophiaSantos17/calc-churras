@@ -42,7 +42,7 @@ Antes de começas. verifique se você atendeu aos seguintes requisitos:
 
 ## 🚀 Instalando o `Epic Churras`
 
-Para isntalar o Epic Churras, siga essas etapas:
+Para instalar o Epic Churras, siga essas etapas:
 
 Clone o repositório com:
 ```

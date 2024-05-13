@@ -12,7 +12,7 @@ O projeto tem como objetivo calcular a quantidade necessária de carnes, comida,
 
 
 
-## Índice1
+## Índice
 
 - [Título e Descrição](#caluladora-de-churrasco)
 - [Stacks Utilizadas](#stacks-utilizadas)

@@ -12,15 +12,16 @@ O projeto tem como objetivo calcular a quantidade necessária de carnes, comida,
 
 
 
-## Referência
+## Índice1
 
- - [Titulo](#Título-e-Descrição)
- - [Referências](#Referência)
- - [Stacks Utilizadas](#Stack-utilizada)
- - [Requisitos](#Requisitos)
- - [Staks Utilizadas](#Instalação)
- - [Modo de Intalação](#Usando)
- - [Colcaboradores](#Perfil-do-GitHub---Links)
+- [Título e Descrição](#caluladora-de-churrasco)
+- [Stacks Utilizadas](#stacks-utilizadas)
+- [Requisitos](#pr%C3%A9-requisitos)
+- [Instalação](#-instalando-o-epic-churras)
+- [Usando](#-usando-o-epic-churras)
+- [Colaboradores](#-colaboradores)
+- [Licença](#licen%C3%A7a)
+
 
 <br>
 

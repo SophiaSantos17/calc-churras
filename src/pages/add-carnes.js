@@ -20,29 +20,59 @@ import Carnes0 from "../back/Carnes0"
 import Convidados from "../back/Convidados"
 
 const PageAddCarnes = () => {
-
   const navigate = useNavigation();
-  
   // função para mudar cor no front
   const [activeBoi, setActiveBoi] = useState(false);
   const [activePorco, setActivePorco] = useState(false);
   const [activeFrango, setActiveFrango] = useState(false);
   
-  const [bovina, setBovina] = useState(0)
-  const [suina, setSuina] = useState(0)
-  const [frango, setFrango] = useState(0)
   const [error, setError] = useState("");
 
 
-  
+  // funcao para o back-end
+  // const [opcoesSelecionadas, setOpcoesSelecionadas] = useState([]);
 
     useEffect(() => {
-      Carnes0.bovina = bovina;
-      Carnes0.suina = suina;
-      Carnes0.frango = frango;
-    }, [bovina, suina, frango]);
+      // console.log(Carnes0.getValores())
+      const {bovina, suina, frango} = Carnes0.getValores()
+      console.log(bovina,suina,frango)
+     
+      // Pega os valores e passa para os useState => pegar a função e deixar o style ativo
+
+      setActiveBoi(bovina)
+      setActivePorco(suina)
+      setActiveFrango(frango)
+
+      console.log(Convidados.getValores())
+    }, [setActiveBoi, setActivePorco, setActiveFrango]);
 
 
+    // Ativa as cores e atualiza o contexto global
+    function toggleSuina(){
+      Carnes0.toggleSuina()
+      setActivePorco(!activePorco)
+
+    }
+    function toggleBovina(){
+      Carnes0.toggleBovina()
+      setActiveBoi(!activeBoi)
+
+    }
+    function toggleFrango(){
+      Carnes0.toggleFrango()
+      setActiveFrango(!activeFrango)
+
+    }
+    
+
+    // function proximo() {
+    //   if (opcoesSelecionadas.length > 0) {
+    //     navigate.navigate("PageAddTipoCarnes", { opcoesSelecionadas });
+    //   } else {
+    //     setError("Um churrasco precisa de carne!!");
+    //   }
+    // }
+    
 
   //   function proximo () {
   //     Carnes0.bovina
@@ -58,8 +88,8 @@ const PageAddCarnes = () => {
 
   function proximo() {
     try {
-      if (bovina === true || suina === true || frango === true) {
-        navigate.navigate("PageAddTipoCarnes");
+      if (activeBoi == true || activePorco == true || activeFrango == true) {
+        navigate.navigate("AddTiposCarnes");
       } else {
         setError("Um churrasco precisa de carne!!");
       }
@@ -110,21 +140,21 @@ const PageAddCarnes = () => {
           icon={icons.boi_black} // Ícone quando não está ativo
           iconHover={icons.boi_white} // Ícone quando está ativo
           title={"Bovina"} // Título do botão
-          onPress={() => setActiveBoi(!activeBoi)} // Função a ser chamada quando o botão é pressionado
+          onPress={() => toggleBovina() } // Função a ser chamada quando o botão é pressionado
         />
         <CardImage
           active={activePorco} // Estado ativo do botão
           icon={icons.porco_black} // Ícone quando não está ativo
           iconHover={icons.porco_white} // Ícone quando está ativo
           title={"Suína"} // Título do botão
-          onPress={() => setActivePorco(!activePorco)} // Função a ser chamada quando o botão é pressionado
+          onPress={() => toggleSuina()} // Função a ser chamada quando o botão é pressionado
         />
         <CardImage
           active={activeFrango} // Estado ativo do botão
           icon={icons.frango_black} // Ícone quando não está ativo
           iconHover={icons.frango_white} // Ícone quando está ativo
           title={"Frango"} // Título do botão
-          onPress={() => setActiveFrango(!activeFrango)} // Função a ser chamada quando o botão é pressionado
+          onPress={() => toggleFrango()} // Função a ser chamada quando o botão é pressionado
         />
       </View>
       <View style={styles.cardButton}>

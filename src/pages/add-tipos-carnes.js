@@ -12,6 +12,7 @@ import icons from "../styles/icons";
 import Button from "../components/button";
 import colors from "../styles/colors";
 import values from "../styles/values";
+import Carnes0 from "../back/Carnes0";
 
 // import do back
 
@@ -49,8 +50,8 @@ const PageAddTipoCarnes = () => {
         subtitle={"Escolha os tipos de carne desejaveis, não é obrigatório"} // Subtitulo
       />
       {/* BOTÕES DE SELEÇÃO */}
-      <View style={styles.boxTotalCards}>
-        <View style={styles.boxCards}>
+      <View style={styles.boxTotalCards} >
+        { Carnes0.getValores().bovina && ( <View style={styles.boxCards}>
           <View style={styles.topCards}>
             <Image source={icons.corte_bovino} style={styles.imgTipoCarne} />
             <TextInter text={"Cortes Bovino"} estilo={styles.titleTipoCarne} />
@@ -81,8 +82,8 @@ const PageAddTipoCarnes = () => {
               active={activeCostela}
             />
           </View>
-        </View>
-        <View style={styles.boxCards}>
+        </View> )}
+        {Carnes0.getValores().suina && ( <View style={styles.boxCards}>
           <View style={styles.topCards}>
             <Image source={icons.corte_suino} style={styles.imgTipoCarne} />
             <TextInter text={"Cortes Suíno"} estilo={styles.titleTipoCarne} />
@@ -113,8 +114,9 @@ const PageAddTipoCarnes = () => {
               active={activeCostelinha}
             />
           </View>
-        </View>
-        <View style={styles.boxCards}>
+        </View> )
+        }
+        { Carnes0.getValores().frango && (<View style={styles.boxCards}>
           <View style={styles.topCards}>
             <Image source={icons.frango_white} style={styles.imgTipoCarne} />
             <TextInter text={"Cortes frango"} estilo={styles.titleTipoCarne} />
@@ -145,7 +147,7 @@ const PageAddTipoCarnes = () => {
               active={activeCoxa}
             />
           </View>
-        </View>
+        </View> )}
       </View>
       <View style={styles.cardButton}>
         <Button

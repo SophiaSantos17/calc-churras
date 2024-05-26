@@ -11,6 +11,10 @@ import TextInter from "../styles/Text";
 import colors from "../styles/colors";
 import values from "../styles/values";
 
+// import das classes
+import Carnes0 from "../back/Carnes0"
+import Convidados from "../back/Convidados"
+
 const PageNotaFiscal = () => {
   const navigate = useNavigation();
 
@@ -48,7 +52,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Homens"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"0"} estilo={styles.dados} />
+              <TextInter text={Convidados.getValores().homens} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -56,7 +60,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Mulheres"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"0"} estilo={styles.dados} />
+              <TextInter text={Convidados.getValores().mulheres} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -64,7 +68,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Crianças"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"0"} estilo={styles.dados} />
+              <TextInter text={Convidados.getValores().criancas} estilo={styles.dados} />
             </View>
           </View>
         </View>

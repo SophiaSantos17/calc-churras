@@ -1,161 +1,152 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Image, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 // Importando componentes prontos
 import TopBar from "../components/topBar";
-import TextInter from "../styles/Text";
 import CardText from "../components/cardText";
+import Button from "../components/button";
 
 // importanto elementos estáticos para estilização
-import icons from "../styles/icons";
-import Button from "../components/button";
 import colors from "../styles/colors";
 import values from "../styles/values";
-import Carnes0 from "../back/Carnes0";
 
 // import do back
+import Utensilios from "../back/Utensilios";
+import Acompanhamentos from "../back/Acompanhamentos";
 
-const PageAddTipoCarnes = () => {
-  // variavel para navegação
-  const navigate = useNavigation();
+const PageAddUtensilios = () => {
+    const navigate = useNavigation(); // const para navegação
 
   // função para mudar cor no front
-  // bovino ---
-  const [activePicanha, setPicanha] = useState(false);
-  const [activeMaminha, setActiveMaminha] = useState(false);
-  const [activeCostela, setActiveCostela] = useState(false);
-  // suino ---
-  const [activePernil, setActivePernil] = useState(false);
-  const [activeLinguica, setActiveLinguica] = useState(false);
-  const [activeCostelinha, setActiveCostelinha] = useState(false);
-  // frango ---
-  const [activeAsa, setActiveAsa] = useState(false);
-  const [activePeito, setActivePeito] = useState(false);
-  const [activeCoxa, setActiveCoxa] = useState(false);
+    const [activeCarvao, setActiveCarvao] = useState(false);  // carvão
+    const [activePrato, setActivePrato] = useState(false);  // prato
+    const [activeKitTalher, setActiveKitTalher] = useState(false);  // kit talher
+    const [activeCopos, setActiveCopos] = useState(false);  // copos
+    const [activeGuardanapo, setActiveGuardanapo] = useState(false); // pão de alho
+
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+      const {carvao, prato, kittalher, copos, guardanapo} = Utensilios.getValores()
+      console.log(carvao, prato, kittalher, copos, guardanapo)
+
+      setActiveCarvao(carvao)
+      setActivePrato(prato)
+      setActiveKitTalher(kittalher)
+      setActiveCopos(copos)
+      setActiveGuardanapo(guardanapo)
+
+      console.log(Acompanhamentos.getValores())
+    }, [setActiveCarvao, setActivePrato, setActiveKitTalher, setActiveCopos, setActiveGuardanapo]);
+
+    function toggleCarvao(){
+      Utensilios.toggleCarvao()
+      setActiveCarvao(!activeCarvao)
+    }
+
+    function togglePrato(){
+      Utensilios.togglePrato()
+      setActivePrato(!activePrato)
+    }
+
+    function toggleKittalher(){
+      Utensilios.toggleKittalher
+      setActiveKitTalher(!activeKitTalher)
+    }
+
+    function toggleCopos(){
+      Utensilios.toggleCopos
+      setActiveCopos(!activeCopos)
+    }
+
+    function toggleGuardanapo(){
+      Utensilios.toggleGuardanapo
+      setActiveGuardanapo(!activeGuardanapo)
+    }
+
+    function proximo(){
+      try{
+        if(activeCarvao == true || activePrato == true || activeKitTalher == true || activeCopos == true || activeGuardanapo == true) {
+          navigate.navigate("AddHoras")
+        } else {
+          setError("Escolha ao menos um acompanhamento!")
+        }
+      } catch (error) {
+        setError(error.message); 
+      }
+    }
+
+    function voltar(){
+      navigate.navigate('PageAddUtensilios');
+    }
+
 
   // front da página
-
-  //   TODO: TERMINAR A PÁGINA
-  
-
   return (
-    <View style={styles.containerAddCarnes}>
+    <View style={styles.containerAddUtensilios}>
       {/* HEADER */}
       <TopBar
-        color_button={"white"} // Cor da setda de volta
-        title={"Carnes"} // Titulo
-        titleColor={colors.white}
-        subtitleColor={colors.dark_white}
-        subtitle={"Escolha os tipos de carne desejaveis, não é obrigatório"} // Subtitulo
+        color_button={"black"} // Cor da setda de volta
+        title={"Utensílios"} // Titulo
+        subtitle={
+          "Escolha a quantidade que desejar Pratos, copos e talheres são descartáveis"
+        } // Subtitulo
+        subtitleColor={"black"} 
+        titleColor={'black'}
       />
       {/* BOTÕES DE SELEÇÃO */}
-      <View style={styles.boxTotalCards} >
-        { Carnes0.getValores().bovina && ( <View style={styles.boxCards}>
-          <View style={styles.topCards}>
-            <Image source={icons.corte_bovino} style={styles.imgTipoCarne} />
-            <TextInter text={"Cortes Bovino"} estilo={styles.titleTipoCarne} />
-          </View>
-          <View style={styles.bottomCards}>
-            <CardText
-              width={"30%"}
-              height={50}
-              text="Picanha"
-              background={"red"}
-              onPress={() => setPicanha(!activePicanha)}
-              active={activePicanha}
-            />
-            <CardText
-              width={"30%"}
-              height={50}
-              text="Maminha"
-              background={"red"}
-              onPress={() => setActiveMaminha(!activeMaminha)}
-              active={activeMaminha}
-            />
-            <CardText
-              width={"30%"}
-              height={50}
-              text="Costela"
-              background={"red"}
-              onPress={() => setActiveCostela(!activeCostela)}
-              active={activeCostela}
-            />
-          </View>
-        </View> )}
-        {Carnes0.getValores().suina && ( <View style={styles.boxCards}>
-          <View style={styles.topCards}>
-            <Image source={icons.corte_suino} style={styles.imgTipoCarne} />
-            <TextInter text={"Cortes Suíno"} estilo={styles.titleTipoCarne} />
-          </View>
-          <View style={styles.bottomCards}>
-            <CardText
-              width={"30%"}
-              height={50}
-              text="Pernil"
-              background={"red"}
-              onPress={() => setActivePernil(!activePernil)}
-              active={activePernil}
-            />
-            <CardText
-              width={"30%"}
-              height={50}
-              text="Linguiça"
-              background={"red"}
-              onPress={() => setActiveLinguica(!activeLinguica)}
-              active={activeLinguica}
-            />
-            <CardText
-              width={"30%"}
-              height={50}
-              text="Costelinha"
-              background={"red"}
-              onPress={() => setActiveCostelinha(!activeCostelinha)}
-              active={activeCostelinha}
-            />
-          </View>
-        </View> )
-        }
-        { Carnes0.getValores().frango && (<View style={styles.boxCards}>
-          <View style={styles.topCards}>
-            <Image source={icons.frango_white} style={styles.imgTipoCarne} />
-            <TextInter text={"Cortes frango"} estilo={styles.titleTipoCarne} />
-          </View>
-          <View style={styles.bottomCards}>
-            <CardText
-              width={"30%"}
-              height={50}
-              text="Asa"
-              background={"red"}
-              onPress={() => setActiveAsa(!activeAsa)}
-              active={activeAsa}
-            />
-            <CardText
-              width={"30%"}
-              height={50}
-              text="Peito"
-              background={"red"}
-              onPress={() => setActivePeito(!activePeito)}
-              active={activePeito}
-            />
-            <CardText
-              width={"30%"}
-              height={50}
-              text="Coxa"
-              background={"red"}
-              onPress={() => setActiveCoxa(!activeCoxa)}
-              active={activeCoxa}
-            />
-          </View>
-        </View> )}
+      <View style={styles.boxCardImages}>
+        <CardText
+          width={"40%"}
+          height={70}
+          text="Carvão"
+          background={"grey"}
+          onPress={() => toggleCarvao()}
+          active={activeCarvao}
+        />
+        <CardText
+          width={"40%"}
+          height={70}
+          text="Prato"
+          background={"grey"}
+          onPress={() => togglePrato()}
+          active={activePrato}
+        />
+        <CardText
+          width={"40%"}
+          height={70}
+          text="Kit Talher"
+          background={"grey"}
+          onPress={() => toggleKittalher()}
+          active={activeKitTalher}
+        />
+        <CardText
+          width={"40%"}
+          height={70}
+          text="Copos"
+          background={"grey"}
+          onPress={() => toggleCopos()}
+          active={activeCopos}
+          />
+        <CardText
+          width={"40%"}
+          height={70}
+          text="Guardanapo"
+          background={"grey"}
+          onPress={() => toggleGuardanapo()}
+          active={activeGuardanapo}
+        />
       </View>
+      {/* BOTÃO DE AVANÇAR */}
       <View style={styles.cardButton}>
         <Button
           text="Avançar" // Titulo do botão
-          backgound={colors.white} // Cor de fundo do botão
-          color={colors.red_primary} // cor do botão
-          border={colors.red_primary}
-          onPress={() => navigate.navigate("AddBebidas")}
+          backgound={colors.red_primary} // Cor de fundo do botão
+          color={colors.white} // cor do botão
+          border={colors.red_primary} // cor da borda
+          onPress={proximo}
+          // onPress={() => navigate.navigate("AddHoras")} //quando pressionar, ir para outra página
         />
       </View>
     </View>
@@ -163,8 +154,9 @@ const PageAddTipoCarnes = () => {
 };
 
 const styles = StyleSheet.create({
-  containerAddCarnes: {
-    backgroundColor: colors.red_primary,
+  //
+  containerAddUtensilios: {
+    backgroundColor: colors.white,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -176,49 +168,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 150,
   },
-  boxTotalCards: {
+  boxCardImages: {
     width: "100%",
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
     gap: 4,
     justifyContent: "center",
-    marginTop: -50,
-    alignItems: "center",
-    height: "auto",
-  },
-  boxCards: {
-    alignItems: "center",
-    width: "93%",
-    display: "flex",
-    flexDirection: "column",
-    gap: 4,
-    marginVertical: 20,
-    justifyContent: "center",
-  },
-  topCards: {
-    width: "85%",
-    display: "flex",
-    flexDirection: "row",
-    height: "auto",
-    gap: 4,
-    alignItems: "flex-start",
-  },
-  bottomCards: {
-    width: "85%",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    gap: 15,
-  },
-  imgTipoCarne: {
-    width: 30,
-    height: 30,
-  },
-  titleTipoCarne: {
-    fontSize: 20,
-    color: colors.white,
+    marginTop: -120,
   },
 });
 
-export default PageAddTipoCarnes;
+export default PageAddUtensilios;

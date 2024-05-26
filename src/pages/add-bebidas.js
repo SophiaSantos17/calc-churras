@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, View } from "react-native";
 
@@ -13,6 +13,9 @@ import colors from "../styles/colors";
 import values from "../styles/values";
 
 // import do back
+import Carnes0 from "../back/Carnes0";
+import Bebidas from "../back/Bebidas"
+import Convidados from "../back/Convidados"
 
 const PageAddBebidas = () => {
     const navigate = useNavigation();
@@ -22,6 +25,57 @@ const PageAddBebidas = () => {
     const [activeSuco, setActiveSuco] = useState(false); // suco
     const [activeCerveja, setActiveCerveja] = useState(false); // cerveja
     const [activeAgua, setActiveAgua] = useState(false); // agua
+    
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+      const {refrigerante, suco, cerveja, agua} = Bebidas.getValores()
+      console.log(refrigerante, suco, cerveja, agua)
+
+      setActiveRefri(refrigerante)
+      setActiveSuco(suco)
+      setActiveCerveja(cerveja)
+      setActiveAgua(agua)
+
+      console.log(Carnes0.getValores())
+    }, [setActiveRefri, setActiveSuco, setActiveCerveja, setActiveAgua]);
+
+    function toggleRefrigerante(){
+      Bebidas.toggleRefrigerante()
+      setActiveRefri(!activeRefri)
+    }
+
+    function toggleSuco(){
+      Bebidas.toggleSuco()
+      setActiveSuco(!activeSuco)
+    }
+
+    function toggleCerveja(){
+      Bebidas.toggleCerveja()
+      setActiveCerveja(!activeCerveja)
+    }
+
+    function toggleAgua(){
+      Bebidas.toggleAgua()
+      setActiveAgua(!activeAgua)
+    }
+
+    function proximo() {
+      try {
+        if (activeRefri == true || activeSuco == true || activeCerveja == true || activeAgua == true) {
+          navigate.navigate("AddAcompanhamento"); 
+        } else {
+          setError("Um churrasco precisa de bebidas!!")
+        }
+      } catch (error) {
+        setError(error.message);
+      }
+    }
+
+    function voltar () {
+      navigate.navigate('PageAddCarnes');
+    }
+
 
 
 
@@ -41,28 +95,28 @@ const PageAddBebidas = () => {
           icon={icons.refri_black} // Ícone quando não está ativo
           iconHover={icons.refri_white} // Ícone quando está ativo
           title={"Refrigerante"} // Título do botão
-          onPress={() => {setActiveRefri(!activeRefri)}} // Função a ser chamada quando o botão é pressionado
+          onPress={() => toggleRefrigerante() } // Função a ser chamada quando o botão é pressionado
         />
         <CardImage
           active={activeSuco} // Estado ativo do botão
           icon={icons.suco_black} // Ícone quando não está ativo
           iconHover={icons.suco_white} // Ícone quando está ativo
           title={"Suco"} // Título do botão
-          onPress={() => setActiveSuco(!activeSuco)} // Função a ser chamada quando o botão é pressionado
+          onPress={() => toggleSuco() } // Função a ser chamada quando o botão é pressionado
         />
         <CardImage
           active={activeCerveja} // Estado ativo do botão
           icon={icons.cerveja_black} // Ícone quando não está ativo
           iconHover={icons.cerveja_white} // Ícone quando está ativo
           title={"Cerveja"} // Título do botão
-          onPress={() => setActiveCerveja(!activeCerveja)} // Função a ser chamada quando o botão é pressionado
+          onPress={() => toggleCerveja() } // Função a ser chamada quando o botão é pressionado
         />
         <CardImage
           active={activeAgua} // Estado ativo do botão
           icon={icons.agua_black} // Ícone quando não está ativo
           iconHover={icons.agua_white} // Ícone quando está ativo
           title={"Água"} // Título do botão
-          onPress={() => setActiveAgua(!activeAgua)} // Função a ser chamada quando o botão é pressionado
+          onPress={() => toggleAgua() } // Função a ser chamada quando o botão é pressionado
         />
       </View>
       {/* BOTÃO DE AVANÇAR */}
@@ -72,7 +126,8 @@ const PageAddBebidas = () => {
           backgound={colors.red_primary} // Cor de fundo do botão
           color={colors.white} // cor do botão
           border={colors.red_primary}
-          onPress={() => navigate.navigate("AddAcompanhamento")}
+          onPress={proximo}
+          // onPress={() => navigate.navigate("AddAcompanhamento")}
         />
       </View>
     </View>

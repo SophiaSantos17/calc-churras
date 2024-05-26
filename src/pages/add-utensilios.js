@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, View } from "react-native";
 
@@ -12,16 +12,74 @@ import colors from "../styles/colors";
 import values from "../styles/values";
 
 // import do back
+import Utensilios from "../back/Utensilios";
+import Acompanhamentos from "../back/Acompanhamentos";
 
 const PageAddUtensilios = () => {
-  const navigate = useNavigation(); // const para navegação
+    const navigate = useNavigation(); // const para navegação
 
   // função para mudar cor no front
-  const [activeCarvao, setaAtiveCarva] = useState(false);  // carvão
-  const [activePrato, setaAtivePrato] = useState(false);  // prato
-  const [activeKitTalher, setAtiveKitTalher] = useState(false);  // kit talher
-  const [activeCopos, setaAtiveCopos] = useState(false);  // copos
-  const [activeGuardanapo, setActiveGuardanapo] = useState(false); // pão de alho
+    const [activeCarvao, setActiveCarvao] = useState(false);  // carvão
+    const [activePrato, setActivePrato] = useState(false);  // prato
+    const [activeKitTalher, setActiveKitTalher] = useState(false);  // kit talher
+    const [activeCopos, setActiveCopos] = useState(false);  // copos
+    const [activeGuardanapo, setActiveGuardanapo] = useState(false); // pão de alho
+
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+      const {carvao, prato, kittalher, copos, guardanapo} = Utensilios.getValores()
+      console.log(carvao, prato, kittalher, copos, guardanapo)
+
+      setActiveCarvao(carvao)
+      setActivePrato(prato)
+      setActiveKitTalher(kittalher)
+      setActiveCopos(copos)
+      setActiveGuardanapo(guardanapo)
+
+      console.log(Acompanhamentos.getValores())
+    }, [setActiveCarvao, setActivePrato, setActiveKitTalher, setActiveCopos, setActiveGuardanapo]);
+
+    function toggleCarvao(){
+      Utensilios.toggleCarvao()
+      setActiveCarvao(!activeCarvao)
+    }
+
+    function togglePrato(){
+      Utensilios.togglePrato()
+      setActivePrato(!activePrato)
+    }
+
+    function toggleKittalher(){
+      Utensilios.toggleKittalher
+      setActiveKitTalher(!activeKitTalher)
+    }
+
+    function toggleCopos(){
+      Utensilios.toggleCopos
+      setActiveCopos(!activeCopos)
+    }
+
+    function toggleGuardanapo(){
+      Utensilios.toggleGuardanapo
+      setActiveGuardanapo(!activeGuardanapo)
+    }
+
+    function proximo(){
+      try{
+        if(activeCarvao == true || activePrato == true || activeKitTalher == true || activeCopos == true || activeGuardanapo == true) {
+          navigate.navigate("AddHoras")
+        } else {
+          setError("Escolha ao menos um acompanhamento!")
+        }
+      } catch (error) {
+        setError(error.message); 
+      }
+    }
+
+    function voltar(){
+      navigate.navigate('PageAddUtensilios');
+    }
 
 
   // front da página
@@ -44,7 +102,7 @@ const PageAddUtensilios = () => {
           height={70}
           text="Carvão"
           background={"grey"}
-          onPress={() => setaAtiveCarva(!activeCarvao)}
+          onPress={() => toggleCarvao()}
           active={activeCarvao}
         />
         <CardText
@@ -52,7 +110,7 @@ const PageAddUtensilios = () => {
           height={70}
           text="Prato"
           background={"grey"}
-          onPress={() => setaAtivePrato(!activePrato)}
+          onPress={() => togglePrato()}
           active={activePrato}
         />
         <CardText
@@ -60,7 +118,7 @@ const PageAddUtensilios = () => {
           height={70}
           text="Kit Talher"
           background={"grey"}
-          onPress={() => setAtiveKitTalher(!activeKitTalher)}
+          onPress={() => toggleKittalher()}
           active={activeKitTalher}
         />
         <CardText
@@ -68,7 +126,7 @@ const PageAddUtensilios = () => {
           height={70}
           text="Copos"
           background={"grey"}
-          onPress={() => setaAtiveCopos(!activeCopos)}
+          onPress={() => toggleCopos()}
           active={activeCopos}
           />
         <CardText
@@ -76,7 +134,7 @@ const PageAddUtensilios = () => {
           height={70}
           text="Guardanapo"
           background={"grey"}
-          onPress={() => setActiveGuardanapo(!activeGuardanapo)}
+          onPress={() => toggleGuardanapo()}
           active={activeGuardanapo}
         />
       </View>
@@ -87,7 +145,8 @@ const PageAddUtensilios = () => {
           backgound={colors.red_primary} // Cor de fundo do botão
           color={colors.white} // cor do botão
           border={colors.red_primary} // cor da borda
-          onPress={() => navigate.navigate("AddHoras")} //quando pressionar, ir para outra página
+          onPress={proximo}
+          // onPress={() => navigate.navigate("AddHoras")} //quando pressionar, ir para outra página
         />
       </View>
     </View>

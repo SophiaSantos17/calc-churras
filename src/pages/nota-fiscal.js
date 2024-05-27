@@ -18,6 +18,25 @@ import Convidados from "../back/Convidados"
 const PageNotaFiscal = () => {
   const navigate = useNavigation();
 
+  // function calcularCarne (){
+  //   if (Carnes0.toggleBovina = true){
+  //     qtdCarneBHomens = Convidados.homens * 600;
+  //     qtdCarneBMulheres = Convidados.mulheres * 400;
+  //     qtdCarneBCriancas = Convidados.criancas * 250;
+  //   }
+  //   if (Carnes0.toggleSuina = true){
+  //     qtdCarneSHomens = Convidados.homens * 400;
+  //     qtdCarneSMulheres = Convidados.mulheres * 200;
+  //     qtdCarneSCriancas = Convidados.criancas * 100;
+  //   }
+  //   if (Carnes0.toggleFrango = true){
+  //     qtdCarneFHomens = Convidados.homens * 300;
+  //     qtdCarneFMulheres = Convidados.mulheres * 150;
+  //     qtdCarneFCriancas = Convidados.criancas * 75;
+  //   }
+  // }
+
+
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -358,6 +377,16 @@ const PageNotaFiscal = () => {
         </View>
       </ScrollView>
     </View>
+
+    // <View>
+    // { {result && (
+    //   <View style={styles.result}>
+    //   <Text style={styles.resultText}>Homens: {result.homens}g</Text>
+    //   <Text style={styles.resultText}>Mulheres: {result.mulheres}g</Text>
+    //   <Text style={styles.resultText}>Total: {result.total}g</Text>
+    //   </View>
+    // )} }
+    // </View>
   );
 };
 
@@ -515,3 +544,159 @@ const styles = StyleSheet.create({
 });
 
 export default PageNotaFiscal;
+// ...................................................
+
+
+
+// import React from 'react';
+// import { View, ScrollView } from 'react-native';
+// // import TopBar from '../components/TopBar';
+// import TextInter from '../components/TextInter';
+// import colors from '../styles/colors';
+// import Convidados from '../back/Convidados';
+
+// const PageNotaFiscal = () => {
+//   const result = {
+//     homens: Convidados.getValores().homens,
+//     mulheres: Convidados.getValores().mulheres,
+//     criancas: Convidados.getValores().criancas,
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <ScrollView contentContainerStyle={styles.scrollView}>
+//         <View>
+//           <TopBar
+//             color_button={"black"}
+//             title={"Partiu para um churrasco épico"}
+//             subtitle={
+//               "Os valores são estimados. É essencial conhecer os participantes e suas preferências individuais."
+//             }
+//             subtitleColor={colors.black}
+//             titleColor={colors.black}
+//             style={{
+//               fontSize: 30,
+//               marginTop: 40,
+//               marginRight: 30,
+//               marginBottom: 10,
+//             }}
+//           />
+//         </View>
+
+//         {/* box dos dados de pessoas */}
+//         <View style={styles.boxInfos}>
+//           <View style={styles.titleDados}>
+//             <TextInter text={"Pessoas"} estilo={styles.texto1} />
+//             <View style={styles.divLinha}></View>
+//           </View>
+//           <View style={styles.boxDados}>
+//             <View style={styles.viewStyleBottom1}>
+//               <TextInter text={"Homens"} estilo={styles.dados} />
+//             </View>
+//             <View style={styles.viewStyleBottom2}>
+//               <TextInter text={result.homens} estilo={styles.dados} />
+//             </View>
+//           </View>
+//           <View style={styles.boxDados}>
+//             <View style={styles.viewStyleBottom1}>
+//               <TextInter text={"Mulheres"} estilo={styles.dados} />
+//             </View>
+//             <View style={styles.viewStyleBottom2}>
+//               <TextInter text={result.mulheres} estilo={styles.dados} />
+//             </View>
+//           </View>
+//           <View style={styles.boxDados}>
+//             <View style={styles.viewStyleBottom1}>
+//               <TextInter text={"Crianças"} estilo={styles.dados} />
+//             </View>
+//             <View style={styles.viewStyleBottom2}>
+//               <TextInter text={result.criancas} estilo={styles.dados} />
+//             </View>
+//           </View>
+//         </View>
+
+//         {/* box de dados de carnes */}
+//         <View style={styles.boxInfos}>
+//           <View style={styles.titleDados}>
+//             <TextInter text={"Carnes"} estilo={styles.texto1} />
+//             <View style={styles.divLinha}></View>
+//           </View>
+//           <View style={styles.boxDados}>
+//             <View style={styles.viewStyleBottom1}>
+//               <TextInter text={"Total Homens"} estilo={styles.dados} />
+//             </View>
+//             <View style={styles.viewStyleBottom2}>
+//               <TextInter text={`${result.homens / 1000}kg`} estilo={styles.dados} />
+//             </View>
+//           </View>
+//           <View style={styles.boxDados}>
+//             <View style={styles.viewStyleBottom1}>
+//               <TextInter text={"Total Mulheres"} estilo={styles.dados} />
+//             </View>
+//             <View style={styles.viewStyleBottom2}>
+//               <TextInter text={`${result.mulheres / 1000}kg`} estilo={styles.dados} />
+//             </View>
+//           </View>
+//           <View style={styles.boxDados}>
+//             <View style={styles.viewStyleBottom1}>
+//               <TextInter text={"Total"} estilo={styles.dados} />
+//             </View>
+//             <View style={styles.viewStyleBottom2}>
+//               <TextInter text={`${(result.homens + result.mulheres) / 1000}kg`} estilo={styles.dados} />
+//             </View>
+//           </View>
+//         </View>
+//       </ScrollView>
+//     </View>
+//   );
+// };
+
+// const styles = {
+//   container: {
+//     flex: 1,
+//     backgroundColor: colors.background,
+//   },
+//   scrollView: {
+//     paddingVertical: 20,
+//   },
+//   boxInfos: {
+//     margin: 10,
+//     padding: 10,
+//     backgroundColor: colors.white,
+//     borderRadius: 5,
+//   },
+//   titleDados: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     marginBottom: 10,
+//   },
+//   texto1: {
+//     fontSize: 18,
+//     fontWeight: 'bold',
+//     color: colors.black,
+//   },
+//   divLinha: {
+//     flex: 1,
+//     height: 1,
+//     backgroundColor: colors.gray,
+//     marginLeft: 10,
+//   },
+//   boxDados: {
+//     flexDirection: 'row',
+//     justifyContent: 'space-between',
+//     paddingVertical: 5,
+//   },
+//   viewStyleBottom1: {
+//     flex: 1,
+//   },
+//   viewStyleBottom2: {
+//     flex: 1,
+//     alignItems: 'flex-end',
+//   },
+//   dados: {
+//     fontSize: 16,
+//     color: colors.black,
+//   },
+// };
+
+// export default PageNotaFiscal;

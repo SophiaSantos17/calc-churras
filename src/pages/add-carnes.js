@@ -105,23 +105,7 @@ const PageAddCarnes = () => {
     navigate.navigate('PageAddPeople'); 
   }
 
-  // function calcularCarne (){
-  //   if (Carnes.bovina = true){
-  //     qtdCarneBHomens = Convidados.homens * 600;
-  //     qtdCarneBMulheres = Convidados.mulheres * 400;
-  //     qtdCarneBCriancas = Convidados.criancas * 250;
-  //   }
-  //   if (Carnes.suina = true){
-  //     qtdCarneSHomens = Convidados.homens * 400;
-  //     qtdCarneSMulheres = Convidados.mulheres * 200;
-  //     qtdCarneSCriancas = Convidados.criancas * 100;
-  //   }
-  //   if (Carnes.frango = true){
-  //     qtdCarneFHomens = Convidados.homens * 300;
-  //     qtdCarneFMulheres = Convidados.mulheres * 150;
-  //     qtdCarneFCriancas = Convidados.criancas * 75;
-  //   }
-  // }
+  
 
 
   // front da página

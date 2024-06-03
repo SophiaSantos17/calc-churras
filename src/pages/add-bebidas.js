@@ -16,6 +16,7 @@ import values from "../styles/values";
 import Carnes0 from "../back/Carnes0";
 import Bebidas from "../back/Bebidas"
 import Convidados from "../back/Convidados"
+import Carnes from "../back/Carnes";
 
 const PageAddBebidas = () => {
     const navigate = useNavigation();
@@ -31,7 +32,7 @@ const PageAddBebidas = () => {
     useEffect(() => {
       const {refrigerante, suco, cerveja, agua} = Bebidas.getValores()
       console.log(refrigerante, suco, cerveja, agua)
-
+      console.log('BEBIDAS:', Carnes.retornarListas())
       setActiveRefri(refrigerante)
       setActiveSuco(suco)
       setActiveCerveja(cerveja)

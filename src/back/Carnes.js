@@ -4,13 +4,16 @@ export default class Carnes{
     static frango = {'Asa': false, 'Peito': false, 'Coxa': false}
     
     static retornarListas(){
-        console.log('TESTess', Carnes.bovina)
-        // return{
-        //     bovina: Carnes.bovina,
-        //     suina: Carnes.suina,
-        //     frango : Carnes.frango
-        // } 
-
+        return{
+            bovina: this.bovina,
+            suina : this.suina,
+            frango: this.frango
+        }
     }
+
+    static toggleCarne(tipo,corte){
+        this[`${tipo}`][`${corte}`] = !this[`${tipo}`][`${corte}`]
+    }
+
 }
 

@@ -14,6 +14,8 @@ import values from "../styles/values";
 import Convidados from "../back/Convidados";
 import Carnes from "../back/Carnes";
 import carnesAtivas from "../back/Carnes";
+//
+import Calculadora from "../back/Calculadora"
 
 const PageAddHoras = () => {
   const navigate = useNavigation();
@@ -40,35 +42,7 @@ const PageAddHoras = () => {
 
 
   })
-  function listarAtivos() {
-    let ativos = [];
 
-    // const {bovina , suina , frango} = carnesAtivas
-    // console.log(carnesAtivas)
-    // // Verifica bovina
-    // for (const carne in bovina) {
-    //     if (bovina[carne]) {
-    //         ativos.push(carne);
-    //     }
-    // }
-
-    // // Verifica suina
-    // for (const carne in suina) {
-    //     if (suina[carne]) {
-    //         ativos.push(carne);
-    //     }
-    // }
-
-    // // Verifica frango
-    // for (const carne in frango) {
-    //     if (frango[carne]) {
-    //         ativos.push(carne);
-    //     }
-    // }
-    console.log(ativos)
-
-    return ativos;
-}
 
 
   const handleSelection = (option) => {
@@ -88,16 +62,15 @@ const PageAddHoras = () => {
     const baseHomem = 600;
     const baseMulher = 400;
     const baseCrianca = 200;
-    const additionalPer2Hours = 100;
+    const additionalPerHour = 50;
 
     // const listaDeCarne = []
-    console.log("CHAMOU")
     let hours = parseInt(selectedOption);
 
 
     let totalPeso = (baseHomem * numHomens) + (baseMulher * numMulheres) + (baseCrianca * numCriancas)
 
-    totalPeso += additionalPer2Hours * hours
+    totalPeso += additionalPerHour * hours 
 
 
 
@@ -107,32 +80,15 @@ const PageAddHoras = () => {
     // let meatMulheres = numMulheres * (baseMulher + additional);
 
     
-
+    console.log(totalPeso)
     const result =  totalPeso
     
-    console.log(totalPeso)
+    Calculadora.totalGramas = totalPeso
 
     setResult(result);
     return result;
   };
 
-  // function calcularCarne (){
-  //   if (Carnes.bovina = true){
-  //     qtdCarneBHomens = Convidados.homens * 600;
-  //     qtdCarneBMulheres = Convidados.mulheres * 400;
-  //     qtdCarneBCriancas = Convidados.criancas * 250;
-  //   }
-  //   if (Carnes.suina = true){
-  //     qtdCarneSHomens = Convidados.homens * 400;
-  //     qtdCarneSMulheres = Convidados.mulheres * 200;
-  //     qtdCarneSCriancas = Convidados.criancas * 100;
-  //   }
-  //   if (Carnes.frango = true){
-  //     qtdCarneFHomens = Convidados.homens * 300;
-  //     qtdCarneFMulheres = Convidados.mulheres * 150;
-  //     qtdCarneFCriancas = Convidados.criancas * 75;
-  //   }
-  // }
   return (
     <View style={styles.container}>
       <View>

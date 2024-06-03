@@ -51,23 +51,23 @@ const PageAddUtensilios = () => {
     }
 
     function toggleKittalher(){
-      Utensilios.toggleKittalher
+      Utensilios.toggleKittalher()
       setActiveKitTalher(!activeKitTalher)
     }
 
     function toggleCopos(){
-      Utensilios.toggleCopos
+      Utensilios.toggleCopos()
       setActiveCopos(!activeCopos)
     }
 
     function toggleGuardanapo(){
-      Utensilios.toggleGuardanapo
+      Utensilios.toggleGuardanapo()
       setActiveGuardanapo(!activeGuardanapo)
     }
 
     function proximo(){
       try{
-        if(activeCarvao == true || activePrato == true || activeKitTalher == true || activeCopos == true || activeGuardanapo == true) {
+        if(activeCarvao == true || activePrato == false || activeKitTalher == true || activeCopos == true || activeGuardanapo == true) {
           navigate.navigate("AddHoras")
         } else {
           setError("Escolha ao menos um acompanhamento!")

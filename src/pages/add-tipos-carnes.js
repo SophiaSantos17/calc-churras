@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Image, StyleSheet, View } from "react-native";
 
@@ -13,6 +13,7 @@ import Button from "../components/button";
 import colors from "../styles/colors";
 import values from "../styles/values";
 import Carnes0 from "../back/Carnes0";
+import Carnes from "../back/Carnes";
 
 // import do back
 
@@ -38,6 +39,9 @@ const PageAddTipoCarnes = () => {
 
   //   TODO: TERMINAR A PÁGINA
   
+  useEffect(() =>{
+
+  })
 
   return (
     <View style={styles.containerAddCarnes}>
@@ -62,7 +66,7 @@ const PageAddTipoCarnes = () => {
               height={50}
               text="Picanha"
               background={"red"}
-              onPress={() => setPicanha(!activePicanha)}
+              onPress={() => {setPicanha(!activePicanha) ; Carnes.toggleCarne('bovina','Picanha')  }}
               active={activePicanha}
             />
             <CardText
@@ -70,7 +74,7 @@ const PageAddTipoCarnes = () => {
               height={50}
               text="Maminha"
               background={"red"}
-              onPress={() => setActiveMaminha(!activeMaminha)}
+              onPress={() => {setActiveMaminha(!activeMaminha) ; Carnes.toggleCarne("bovina", "Maminha") }}
               active={activeMaminha}
             />
             <CardText
@@ -78,7 +82,7 @@ const PageAddTipoCarnes = () => {
               height={50}
               text="Costela"
               background={"red"}
-              onPress={() => setActiveCostela(!activeCostela)}
+              onPress={() => {setActiveCostela(!activeCostela) ; Carnes.toggleCarne("bovina", "Costela") }}
               active={activeCostela}
             />
           </View>
@@ -94,7 +98,7 @@ const PageAddTipoCarnes = () => {
               height={50}
               text="Pernil"
               background={"red"}
-              onPress={() => setActivePernil(!activePernil)}
+              onPress={() => {setActivePernil(!activePernil) ; Carnes.toggleCarne("suina","Pernil")}}
               active={activePernil}
             />
             <CardText
@@ -102,7 +106,7 @@ const PageAddTipoCarnes = () => {
               height={50}
               text="Linguiça"
               background={"red"}
-              onPress={() => setActiveLinguica(!activeLinguica)}
+              onPress={() => {setActiveLinguica(!activeLinguica) ; Carnes.toggleCarne("suina", "Linguica") }}
               active={activeLinguica}
             />
             <CardText
@@ -110,7 +114,7 @@ const PageAddTipoCarnes = () => {
               height={50}
               text="Costelinha"
               background={"red"}
-              onPress={() => setActiveCostelinha(!activeCostelinha)}
+              onPress={() => {setActiveCostelinha(!activeCostelinha) ; Carnes.toggleCarne("suina", "Costelinha")}}
               active={activeCostelinha}
             />
           </View>
@@ -127,7 +131,7 @@ const PageAddTipoCarnes = () => {
               height={50}
               text="Asa"
               background={"red"}
-              onPress={() => setActiveAsa(!activeAsa)}
+              onPress={() => {setActiveAsa(!activeAsa) ; Carnes.toggleCarne("frango", "Asa")}}
               active={activeAsa}
             />
             <CardText
@@ -135,7 +139,7 @@ const PageAddTipoCarnes = () => {
               height={50}
               text="Peito"
               background={"red"}
-              onPress={() => setActivePeito(!activePeito)}
+              onPress={() => {setActivePeito(!activePeito) ; Carnes.toggleCarne("frango" , "Peito")}}
               active={activePeito}
             />
             <CardText
@@ -143,7 +147,7 @@ const PageAddTipoCarnes = () => {
               height={50}
               text="Coxa"
               background={"red"}
-              onPress={() => setActiveCoxa(!activeCoxa)}
+              onPress={() => {setActiveCoxa(!activeCoxa) ; Carnes.toggleCarne("frango", "Coxa")}} 
               active={activeCoxa}
             />
           </View>

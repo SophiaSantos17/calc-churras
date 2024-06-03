@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View, ScrollView, Modal, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -14,9 +14,15 @@ import values from "../styles/values";
 // import das classes
 import Carnes0 from "../back/Carnes0"
 import Convidados from "../back/Convidados"
+import  Calculadora  from "../back/Calculadora";
 
 const PageNotaFiscal = () => {
   const navigate = useNavigation();
+
+  useEffect(() => {
+    Calculadora.calcularCarnes()
+    
+  })
 
   // function calcularCarne (){
   //   if (Carnes0.toggleBovina = true){

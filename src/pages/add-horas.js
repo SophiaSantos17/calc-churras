@@ -120,18 +120,18 @@ const PageAddHoras = () => {
         <CardText
           width={"40%"}
           height={"25%"}
-          text={"10 Horas"}
-          background={selectedOption === '10' ? 'red' : 'red'}
-          onPress={() => handleSelection('10')}
-          active={selectedOption === '10'}
+          text={"8 Horas"}
+          background={selectedOption === '8' ? 'red' : 'red'}
+          onPress={() => handleSelection('8')}
+          active={selectedOption === '8'}
         />
         <CardText
           width={"40%"}
           height={"25%"}
-          text={"12 Horas"}
-          background={selectedOption === '12' ? 'red' : 'red'}
-          onPress={() => handleSelection('12')}
-          active={selectedOption === '12'}
+          text={"10 Horas"}
+          background={selectedOption === '10' ? 'red' : 'red'}
+          onPress={() => handleSelection('10')}
+          active={selectedOption === '10'}
         />
       </View>
       <View style={styles.cardButton}>
@@ -145,9 +145,9 @@ const PageAddHoras = () => {
       </View>
       {result && (
         <View style={styles.result}>
-          <Text style={styles.resultText}>Homens: {result.homens}g</Text>
+          {/* <Text style={styles.resultText}>Homens: {result.homens}g</Text>
           <Text style={styles.resultText}>Mulheres: {result.mulheres}g</Text>
-          <Text style={styles.resultText}>Total: {result.total}g</Text>
+          <Text style={styles.resultText}>Total: {result.total}g</Text> */}
         </View>
       )}
     </View>

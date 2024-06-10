@@ -7,8 +7,6 @@ import TopBar from "../components/topBar";
 import Button from "../components/button";
 import TextInter from "../styles/Text";
 
-
-
 // import valores
 import colors from "../styles/colors";
 import values from "../styles/values";
@@ -21,11 +19,13 @@ import  Calculadora  from "../back/Calculadora";
 const PageNotaFiscal = () => {
   const navigate = useNavigation();
 
-  // useEffect(() => {
-  //   Calculadora.calcularCarnes(Carnes0.bovina, Carnes0.suina, Carnes0.frango);
-  //   console.log(Calculadora.calcularCarnes())
+  useEffect(() => {
+    Calculadora.calcularCarnes(Carnes0.bovina, Carnes0.suina, Carnes0.frango);
+    // console.log(Calculadora.calcularCarnes())
 
-  // }) 
+  }) 
+
+  
 
 
   const [modalVisible, setModalVisible] = useState(false);

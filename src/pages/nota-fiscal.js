@@ -27,6 +27,9 @@ const PageNotaFiscal = () => {
 
   
 
+  const resultados = Calculadora.calcularCarnes();
+  
+
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -94,7 +97,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Bovina"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"0.0kg"} estilo={styles.dados} />
+              <TextInter text={resultados.gramasBovina} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -102,7 +105,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Suína"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"0.0kg"} estilo={styles.dados} />
+              <TextInter text={resultados.gramasSuina} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -110,7 +113,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Frango"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"0.0kg"} estilo={styles.dados} />
+              <TextInter text={resultados.gramasSuina} estilo={styles.dados} />
             </View>
           </View>
         </View>
@@ -157,7 +160,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Cerveja"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"0 un"} estilo={styles.dados} />
+              <TextInter text={(Convidados.definirNumQntsbebem()) * 2} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>

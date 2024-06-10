@@ -94,7 +94,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Bovina"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"2.1kg"} estilo={styles.dados} />
+              <TextInter text={"0.0kg"} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -102,7 +102,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Suína"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"2.1kg"} estilo={styles.dados} />
+              <TextInter text={"0.0kg"} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -157,7 +157,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Cerveja"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"10 un"} estilo={styles.dados} />
+              <TextInter text={"0 un"} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -165,7 +165,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Agua"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"2.2L"} estilo={styles.dados} />
+              <TextInter text={"0.0L"} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -173,7 +173,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Suco"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"2.2L"} estilo={styles.dados} />
+              <TextInter text={"0.0L"} estilo={styles.dados} />
             </View>
           </View>
         </View>
@@ -192,7 +192,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Arroz"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"1360g"} estilo={styles.dados} />
+              <TextInter text={"0g"} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -200,7 +200,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Farofa"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"800g"} estilo={styles.dados} />
+              <TextInter text={"0g"} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -208,7 +208,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Pão Francês"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"20 un"} estilo={styles.dados} />
+              <TextInter text={"0 un"} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -216,7 +216,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Pão de Alho"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"3 un"} estilo={styles.dados} />
+              <TextInter text={"0 un"} estilo={styles.dados} />
             </View>
           </View>
         </View>
@@ -235,7 +235,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Carvão"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"3384g"} estilo={styles.dados} />
+              <TextInter text={"0g"} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -243,7 +243,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Prato"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"8 un"} estilo={styles.dados} />
+              <TextInter text={"0 un"} estilo={styles.dados} />
             </View>
           </View>
           <View style={styles.boxDados}>
@@ -251,7 +251,7 @@ const PageNotaFiscal = () => {
               <TextInter text={"Copos"} estilo={styles.dados} />
             </View>
             <View style={styles.viewStyleBottom2}>
-              <TextInter text={"8 un"} estilo={styles.dados} />
+              <TextInter text={"0 un"} estilo={styles.dados} />
             </View>
           </View>
         </View>
